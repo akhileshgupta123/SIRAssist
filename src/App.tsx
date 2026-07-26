@@ -15,6 +15,7 @@ import { PythonInspectorModal } from './components/PythonInspectorModal';
 import { PromptLabTab } from './components/PromptLabTab';
 import { FieldVerificationTab } from './components/FieldVerificationTab';
 import { ArchitectureDiagramTab } from './components/ArchitectureDiagramTab';
+import { TestingSuiteTab } from './components/TestingSuiteTab';
 import { Sparkles, Layers, Database, ShieldCheck, Cpu, Code, Vote, CheckCircle2, AlertTriangle } from 'lucide-react';
 
 export function App() {
@@ -37,7 +38,7 @@ export function App() {
     };
   });
 
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture' | 'testing'>('dashboard');
   
   const [records, setRecords] = useState<ElectoralRecord[]>([]);
   const [stats, setStats] = useState<DashboardStats>({
@@ -453,6 +454,9 @@ export function App() {
 
         {/* Tab View: System & Agent Architecture */}
         {activeTab === 'architecture' && <ArchitectureDiagramTab />}
+
+        {/* Tab View: Automated Testing & QA Suite */}
+        {activeTab === 'testing' && <TestingSuiteTab />}
       </main>
 
       {/* Modals */}

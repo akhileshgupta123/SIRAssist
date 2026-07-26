@@ -3,8 +3,8 @@ import { Vote, Sparkles, Database, Code, Upload, LogOut, UserCheck, Layers, Clip
 import { UserSession } from './LoginScreen';
 
 interface HeaderProps {
-  activeTab: 'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture';
-  setActiveTab: (tab: 'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture') => void;
+  activeTab: 'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture' | 'testing';
+  setActiveTab: (tab: 'dashboard' | 'records' | 'field-verification' | 'prompt-lab' | 'python-inspector' | 'architecture' | 'testing') => void;
   onOpenNewRecordModal: () => void;
   onOpenUploadModal: () => void;
   onRunBatchAudit: () => void;
@@ -245,6 +245,17 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Network className="w-3.5 h-3.5 text-purple-600" />
               System Architecture
+            </button>
+            <button
+              onClick={() => setActiveTab('testing')}
+              className={`px-3.5 py-2 text-xs font-semibold rounded-t-md transition-all flex items-center gap-1.5 border-b-2 ${
+                activeTab === 'testing'
+                  ? 'border-[#0176d3] text-[#0176d3] bg-blue-50/50 font-bold'
+                  : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              <ShieldCheck className="w-3.5 h-3.5 text-[#027e46]" />
+              Automated QA Tests
             </button>
           </nav>
         </div>

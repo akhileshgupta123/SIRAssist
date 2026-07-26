@@ -1,11 +1,12 @@
 import { GoogleGenAI, Type } from '@google/genai';
 import { getAllElectoralRecords } from './db.js';
 import { GeminiSIRAnalysis, DuplicateVoterMatch, AnomalySeverity, SIRCategory } from '../types.js';
+import { logger } from './logger.js';
 
 export function getGeminiClient() {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    console.warn("GEMINI_API_KEY environment variable not set. Gemini AI calls will fallback to heuristic analysis.");
+    logger.warn('GEMINI_KEY_MISSING', 'GEMINI_API_KEY environment variable not set. Gemini AI calls will fallback to heuristic analysis.');
     return null;
   }
   return new GoogleGenAI({ apiKey });
@@ -171,14 +172,25 @@ Generate a JSON object with:
       if (response.text) {
         const parsed = JSON.parse(response.text);
         parsed.duplicateAnalysis = dupCheck;
+        logger.info('GEMINI_ANALYSIS_SUCCESS', `Successfully analyzed voter record ${epicNumber} using Gemini AI`, {
+          epicNumber,
+          riskScore: parsed.riskScore,
+          anomalySeverity: parsed.anomalySeverity
+        });
         return parsed as GeminiSIRAnalysis;
       }
-    } catch (err) {
-      console.error("Gemini API call failed, falling back to heuristic engine:", err);
+    } catch (err: any) {
+      logger.error('GEMINI_API_ERROR', `Gemini API call failed for ${epicNumber}, falling back to heuristic engine`, err, {
+        epicNumber,
+        voterName
+      });
     }
   }
 
-  // Heuristic Engine Fallback
+  logger.info('HEURISTIC_ANALYSIS_FALLBACK', `Generated heuristic analysis for voter record ${epicNumber}`, {
+    epicNumber,
+    category
+  });
   let severity: AnomalySeverity = 'Medium';
   let riskScore = 50;
   let slaHours = 24;

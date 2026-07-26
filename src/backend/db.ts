@@ -2,33 +2,50 @@ import initSqlJs, { Database } from 'sql.js';
 import fs from 'fs';
 import path from 'path';
 import { ElectoralRecord, ReviewAction, DashboardStats, SIRCategory, AnomalySeverity, SIRStatus } from '../types.js';
+import { logger } from './logger.js';
+import { getAppConfig } from './config.js';
 
 let db: Database | null = null;
-const dbFilePath = path.join(process.cwd(), 'data', 'sir_assist.db');
+
+export function getDatabaseFilePath(): string {
+  return getAppConfig().databasePath;
+}
 
 export async function getDb(): Promise<Database> {
   if (db) return db;
 
-  const SQL = await initSqlJs();
-  const dbDir = path.dirname(dbFilePath);
-  if (!fs.existsSync(dbDir)) {
-    fs.mkdirSync(dbDir, { recursive: true });
-  }
+  const dbFilePath = getDatabaseFilePath();
 
-  if (fs.existsSync(dbFilePath)) {
-    const filebuffer = fs.readFileSync(dbFilePath);
-    db = new SQL.Database(filebuffer);
-  } else {
-    db = new SQL.Database();
-  }
+  try {
+    logger.info('DB_INIT_START', 'Initializing SQLite database connection', { dbFilePath, env: getAppConfig().env });
+    const SQL = await initSqlJs();
+    const dbDir = path.dirname(dbFilePath);
+    if (!fs.existsSync(dbDir)) {
+      fs.mkdirSync(dbDir, { recursive: true });
+    }
 
-  initTables(db);
-  saveDb();
-  return db;
+    if (fs.existsSync(dbFilePath)) {
+      const filebuffer = fs.readFileSync(dbFilePath);
+      db = new SQL.Database(filebuffer);
+      logger.info('DB_LOADED_FILE', 'Loaded existing SQLite database file', { dbFilePath, bytes: filebuffer.length });
+    } else {
+      db = new SQL.Database();
+      logger.info('DB_LOADED_NEW', 'Created new in-memory SQLite database');
+    }
+
+    initTables(db);
+    saveDb();
+    logger.info('DB_INIT_COMPLETE', 'SQLite database initialization completed successfully');
+    return db;
+  } catch (err: any) {
+    logger.error('DB_INIT_FAILED', 'Failed to initialize SQLite database', err, { dbFilePath });
+    throw err;
+  }
 }
 
 export function saveDb(): void {
   if (!db) return;
+  const dbFilePath = getDatabaseFilePath();
   const data = db.export();
   const dbDir = path.dirname(dbFilePath);
   if (!fs.existsSync(dbDir)) {
