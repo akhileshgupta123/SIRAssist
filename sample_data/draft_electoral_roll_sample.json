@@ -1,0 +1,54 @@
+[
+  {
+    "voterName": "Ramesh Chandra Sharma",
+    "epicNumber": "EPIC-WB-2026-90412",
+    "relativeName": "Kailash Nath Sharma",
+    "relationType": "Father",
+    "age": 42,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 12 (Booth 14-A)",
+    "houseAddress": "42/B Rashbehari Avenue, Flat 3A, Kolkata",
+    "bloAssigned": "BLO-12 (A. Banerjee)",
+    "category": "Demographic Match"
+  },
+  {
+    "voterName": "Subhash Bose",
+    "epicNumber": "EPIC-WB-2026-99011",
+    "relativeName": "Janki Nath Bose",
+    "relationType": "Father",
+    "age": 48,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 12",
+    "houseAddress": "38/1 Elgin Road Kolkata",
+    "bloAssigned": "BLO-12 (A. Banerjee)",
+    "category": "Demographic Match"
+  },
+  {
+    "voterName": "Pratima Sen",
+    "epicNumber": "EPIC-WB-2026-99022",
+    "relativeName": "Anil Sen",
+    "relationType": "Husband",
+    "age": 34,
+    "gender": "F",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 14",
+    "houseAddress": "14 Rashbehari Ave Kolkata",
+    "bloAssigned": "BLO-14 (S. Roy)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Kushal Mukherjee",
+    "epicNumber": "EPIC-WB-2026-99033",
+    "relativeName": "Manish Mukherjee",
+    "relationType": "Father",
+    "age": 52,
+    "gender": "M",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 48",
+    "houseAddress": "88 SC Mullick Road Jadavpur",
+    "bloAssigned": "BLO-48 (M. Das)",
+    "category": "Bulk Address Cluster"
+  }
+]

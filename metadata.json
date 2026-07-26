@@ -1,0 +1,6 @@
+{
+  "name": "Electoral Roll SIR Verification Platform",
+  "description": "Verification and simulation platform to support Special Intensive Revision (SIR) workflows for electoral rolls with duplicate voter detection, BLO field verification, and ERO review workflows.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

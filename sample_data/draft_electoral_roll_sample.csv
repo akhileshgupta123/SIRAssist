@@ -1,0 +1,8 @@
+voterName,epicNumber,relativeName,relationType,age,gender,assemblyConstituency,partNumber,houseAddress,bloAssigned,category
+Ramesh Chandra Sharma,EPIC-WB-2026-90412,Kailash Nath Sharma,Father,42,M,AC-164 Kolkata South,Part 12,42/B Rashbehari Avenue Flat 3A Kolkata,BLO-12 (A. Banerjee),Demographic Match
+Subhash Bose,EPIC-WB-2026-99011,Janki Nath Bose,Father,48,M,AC-164 Kolkata South,Part 12,38/1 Elgin Road Kolkata,BLO-12 (A. Banerjee),Demographic Match
+Pratima Sen,EPIC-WB-2026-99022,Anil Sen,Husband,34,F,AC-164 Kolkata South,Part 14,14 Rashbehari Ave Kolkata,BLO-14 (S. Roy),Photo Hash Duplicate
+Kushal Mukherjee,EPIC-WB-2026-99033,Manish Mukherjee,Father,52,M,AC-165 Jadavpur,Part 48,88 SC Mullick Road Jadavpur,BLO-48 (M. Das),Bulk Address Cluster
+Amina Begum,EPIC-WB-2026-99044,Tariq Hossain,Husband,29,F,AC-164 Kolkata South,Part 15,102 Park Street Kolkata,BLO-15 (R. Ghosh),EPIC ID Anomaly
+Rajesh Kumar Sharma,EPIC-WB-2026-90412,Kailash Sharma,Father,42,M,AC-165 Jadavpur,Part 48,18/1 SC Mullick Road Jadavpur,BLO-48 (M. Das),EPIC ID Anomaly
+Sita Devi,EPIC-WB-2026-99066,Ram Charan,Father,104,F,AC-164 Kolkata South,Part 12,5 Shakespeare Sarani Kolkata,BLO-12 (A. Banerjee),Age/Relative Mismatch
