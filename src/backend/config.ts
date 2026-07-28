@@ -27,47 +27,31 @@ export interface AppConfig {
   slaThresholds: SlaThresholds;
 }
 
-function parseBool(val: string | undefined, defaultValue: boolean): boolean {
-  if (val === undefined || val === '') return defaultValue;
-  return val.toLowerCase() === 'true' || val === '1';
-}
-
-function parseIntOrDefault(val: string | undefined, defaultValue: number): number {
-  if (!val) return defaultValue;
-  const parsed = parseInt(val, 10);
-  return isNaN(parsed) ? defaultValue : parsed;
-}
-
-// Global runtime mutable feature flag state (allows live overrides in UI)
-let mutableFeatureFlags: FeatureFlags = {
-  enableMultiAgentAi: parseBool(process.env.ENABLE_MULTI_AGENT_AI, true),
-  enableSoundexPhonetics: parseBool(process.env.ENABLE_SOUNDEX_PHONETICS, true),
-  enableDemographicAnomalyRules: parseBool(process.env.ENABLE_DEMOGRAPHIC_ANOMALY_RULES, true),
-  enableForm7Purge: parseBool(process.env.ENABLE_FORM7_PURGE, true),
-  enableDetailedLogging: parseBool(process.env.ENABLE_DETAILED_LOGGING, true),
-  enableSimulatedBloFieldTasks: parseBool(process.env.ENABLE_SIMULATED_BLO_FIELD_TASKS, true),
+const DEFAULT_FEATURE_FLAGS: FeatureFlags = {
+  enableMultiAgentAi: true,
+  enableSoundexPhonetics: true,
+  enableDemographicAnomalyRules: true,
+  enableForm7Purge: true,
+  enableDetailedLogging: true,
+  enableSimulatedBloFieldTasks: true,
 };
 
-export function getAppConfig(): AppConfig {
-  const envRaw = (process.env.APP_ENV || process.env.NODE_ENV || 'development').toLowerCase();
-  const env: AppEnvironment = (['development', 'staging', 'production'].includes(envRaw)
-    ? envRaw
-    : 'development') as AppEnvironment;
+let mutableFeatureFlags: FeatureFlags = { ...DEFAULT_FEATURE_FLAGS };
 
-  const port = parseIntOrDefault(process.env.PORT, 3000);
-  const defaultDbPath = path.join(process.cwd(), 'data', `sir_assist_${env}.db`);
-  const databasePath = process.env.DATABASE_PATH || defaultDbPath;
+export function getAppConfig(): AppConfig {
+  const port = 3000;
+  const databasePath = path.join(process.cwd(), 'data', 'sir_assist.db');
   const appUrl = process.env.APP_URL || `http://localhost:${port}`;
   const hasGeminiApiKey = Boolean(process.env.GEMINI_API_KEY && process.env.GEMINI_API_KEY !== 'MY_GEMINI_API_KEY');
 
   const slaThresholds: SlaThresholds = {
-    criticalSlaHours: parseIntOrDefault(process.env.CRITICAL_SLA_HOURS, 12),
-    highSlaHours: parseIntOrDefault(process.env.HIGH_SLA_HOURS, 24),
-    duplicateThresholdScore: parseIntOrDefault(process.env.DUPLICATE_THRESHOLD_SCORE, 75),
+    criticalSlaHours: 12,
+    highSlaHours: 24,
+    duplicateThresholdScore: 75,
   };
 
   return {
-    env,
+    env: 'development',
     port,
     databasePath,
     appUrl,
@@ -85,13 +69,6 @@ export function updateFeatureFlag(key: keyof FeatureFlags, value: boolean): Feat
 }
 
 export function resetFeatureFlags(): FeatureFlags {
-  mutableFeatureFlags = {
-    enableMultiAgentAi: parseBool(process.env.ENABLE_MULTI_AGENT_AI, true),
-    enableSoundexPhonetics: parseBool(process.env.ENABLE_SOUNDEX_PHONETICS, true),
-    enableDemographicAnomalyRules: parseBool(process.env.ENABLE_DEMOGRAPHIC_ANOMALY_RULES, true),
-    enableForm7Purge: parseBool(process.env.ENABLE_FORM7_PURGE, true),
-    enableDetailedLogging: parseBool(process.env.ENABLE_DETAILED_LOGGING, true),
-    enableSimulatedBloFieldTasks: parseBool(process.env.ENABLE_SIMULATED_BLO_FIELD_TASKS, true),
-  };
+  mutableFeatureFlags = { ...DEFAULT_FEATURE_FLAGS };
   return { ...mutableFeatureFlags };
 }

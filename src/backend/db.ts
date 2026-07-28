@@ -3,21 +3,19 @@ import fs from 'fs';
 import path from 'path';
 import { ElectoralRecord, ReviewAction, DashboardStats, SIRCategory, AnomalySeverity, SIRStatus } from '../types.js';
 import { logger } from './logger.js';
-import { getAppConfig } from './config.js';
 
 let db: Database | null = null;
+const dbFilePath = path.join(process.cwd(), 'data', 'sir_assist.db');
 
 export function getDatabaseFilePath(): string {
-  return getAppConfig().databasePath;
+  return dbFilePath;
 }
 
 export async function getDb(): Promise<Database> {
   if (db) return db;
 
-  const dbFilePath = getDatabaseFilePath();
-
   try {
-    logger.info('DB_INIT_START', 'Initializing SQLite database connection', { dbFilePath, env: getAppConfig().env });
+    logger.info('DB_INIT_START', 'Initializing SQLite database connection', { dbFilePath });
     const SQL = await initSqlJs();
     const dbDir = path.dirname(dbFilePath);
     if (!fs.existsSync(dbDir)) {
