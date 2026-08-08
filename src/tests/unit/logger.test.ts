@@ -43,4 +43,32 @@ describe('Unit Tests: Structured Logging Framework', () => {
     expect(errorLogs.length).toBe(1);
     expect(errorLogs[0].event).toBe('DB_WRITE_ERROR');
   });
+
+  it('should capture warn and debug logs correctly', () => {
+    logger.clearLogs();
+
+    const warnEntry = logger.warn('WARN_EVENT', 'Warning message');
+    expect(warnEntry.level).toBe('WARN');
+
+    const debugEntry = logger.debug('DEBUG_EVENT', 'Debug message');
+    expect(debugEntry.level).toBe('DEBUG');
+
+    const recentWarns = logger.getRecentLogs(10, 'WARN');
+    expect(recentWarns).toHaveLength(1);
+    expect(recentWarns[0].event).toBe('WARN_EVENT');
+
+    const recentDebugs = logger.getRecentLogs(10, 'DEBUG');
+    expect(recentDebugs).toHaveLength(1);
+    expect(recentDebugs[0].event).toBe('DEBUG_EVENT');
+  });
+
+  it('should format non-Error objects correctly in error logs', () => {
+    logger.clearLogs();
+
+    const entry = logger.error('STRING_ERR', 'Failed with raw string', 'Connection timeout');
+    expect(entry.error?.message).toBe('Connection timeout');
+
+    logger.clearLogs();
+    expect(logger.getRecentLogs()).toHaveLength(0);
+  });
 });

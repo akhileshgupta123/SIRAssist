@@ -62,6 +62,38 @@ describe('Unit Tests: Demographic Anomaly Detection Rules', () => {
     );
   });
 
+  it('should flag CRITICAL anomaly for underage voters (< 18 years)', () => {
+    const result = detectDemographicAnomaly(
+      16,
+      50,
+      'Father',
+      'EPIC-WB-2026-10016',
+      'Rahul Roy'
+    );
+
+    expect(result.hasAnomaly).toBe(true);
+    expect(result.severity).toBe('Critical');
+    expect(result.rulesViolated).toContainEqual(
+      expect.stringContaining('UNDERAGE_VOTER')
+    );
+  });
+
+  it('should flag MEDIUM anomaly for single-character or truncated name entry', () => {
+    const result = detectDemographicAnomaly(
+      30,
+      60,
+      'Father',
+      'EPIC-WB-2026-10030',
+      'A'
+    );
+
+    expect(result.hasAnomaly).toBe(true);
+    expect(result.severity).toBe('Medium');
+    expect(result.rulesViolated).toContainEqual(
+      expect.stringContaining('INCOMPLETE_NAME_ENTRY')
+    );
+  });
+
   it('should flag HIGH anomaly for malformed EPIC numbers', () => {
     const result = detectDemographicAnomaly(
       35,
@@ -113,6 +145,25 @@ describe('Unit Tests: Duplicate Risk Score Calculator', () => {
     expect(outcome.riskScore).toBeGreaterThanOrEqual(75);
     expect(outcome.isDuplicateCandidate).toBe(true);
     expect(outcome.reasoning).toContain('High risk match');
+  });
+
+  it('should apply same constituency bonus and minor age diff weighting in risk score', () => {
+    const voterA = {
+      name: 'Subhas Chandra Bose Ray',
+      relativeName: 'Amarendra Bose Ray',
+      age: 38,
+      constituency: 'AC-164 Kolkata South'
+    };
+    const voterB = {
+      name: 'Subhas Bose Ray',
+      relativeName: 'Amarendra Bose Ray',
+      age: 39, // age diff 1
+      constituency: 'AC-164 Kolkata South'
+    };
+
+    const outcome = calculateDuplicateRiskScore(voterA, voterB);
+    expect(outcome.riskScore).toBeGreaterThanOrEqual(75);
+    expect(outcome.isDuplicateCandidate).toBe(true);
   });
 
   it('should return low risk score for distinctly different voters', () => {
