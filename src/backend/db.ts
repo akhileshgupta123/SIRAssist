@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count < 15) {
+  if (count < 25) {
     seedInitialData(database);
   }
 }
@@ -1182,6 +1182,261 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-08-02 10:30:00',
       updated_at: '2026-08-02 10:30:00'
+    },
+    {
+      id: 'rec-021',
+      epic_number: 'EPIC-WB-2026-88306',
+      voter_name: 'Amitabh Mukherjee',
+      relative_name: 'Debasis Mukherjee',
+      relation_type: 'Father',
+      age: 82,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 07',
+      part_number: 'Part 07 (Booth 09-A)',
+      house_address: '44 Lansdowne Road, Kolkata',
+      blo_assigned: 'BLO-07 (A. Ghosh)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-02 14:15:00',
+      risk_score: 91,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 91,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Rules - DOB-Age Digit Transposition Audit',
+        rootCauseFactors: [
+          'Form 6 DOB recorded as 12/04/2005 (Age 21), but printed roll age is 82',
+          'Digit transposition error during data entry (1944 vs 2005)',
+          'Demographic age inconsistency flagged against voter birth certificate'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-07 to inspect original Form 6 application copy',
+          'Submit Form 8 for age correction from 82 to 21'
+        ],
+        bloVerificationChecklist: [
+          'Verify birth certificate or secondary admit card',
+          'Collect signed Form 8 correction request'
+        ],
+        recommendedOwner: 'BLO-07 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Digit transposition age mismatch.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Age digit transposition anomaly (DOB 2005 recorded as Age 82). Field verification assigned.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-08-02 14:15:00',
+      updated_at: '2026-08-02 14:15:00'
+    },
+    {
+      id: 'rec-022',
+      epic_number: 'EPIC-WB-2026-88307',
+      voter_name: 'Sunita Rani Das',
+      relative_name: 'Late Haradhan Das',
+      relation_type: 'Mother',
+      age: 41,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 12',
+      part_number: 'Part 12 (Booth 14-B)',
+      house_address: '18 Lake Terrace, Kolkata',
+      blo_assigned: 'BLO-12 (A. Banerjee)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-03 09:30:00',
+      risk_score: 88,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 88,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Directive - Relative Gender Tag Consistency Rules',
+        rootCauseFactors: [
+          'Relation type recorded as "Mother" but relative name is "Late Haradhan Das" (Male name)',
+          'Mismatch between relation tag designation and relative gender classification',
+          'Clerical error during Form 6 conversion'
+        ],
+        recommendedFieldActions: [
+          'ERO review to update relation type to "Husband" or "Father"',
+          'Contact applicant for confirmation'
+        ],
+        bloVerificationChecklist: [
+          'Inspect voter ID / Aadhaar relative name representation',
+          'Confirm relation type'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Relative gender tag mismatch.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Relative gender tag mismatch (Mother relation with male relative name). Pending ERO review.',
+        aiConfidence: 94
+      }),
+      created_at: '2026-08-03 09:30:00',
+      updated_at: '2026-08-03 09:30:00'
+    },
+    {
+      id: 'rec-023',
+      epic_number: 'EPIC-WB-2026-88308',
+      voter_name: 'Vikram Malhotra',
+      relative_name: 'Rajesh Malhotra',
+      relation_type: 'Father',
+      age: 35,
+      gender: 'M',
+      assembly_constituency: 'AC-165 Jadavpur, Part 18',
+      part_number: 'Part 18 (Booth 20-A)',
+      house_address: 'N/A NULL 000 ST, Kolkata',
+      blo_assigned: 'BLO-18 (P. Roy)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'Critical',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-03 11:00:00',
+      risk_score: 95,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 11 - Valid Address & Location Verification',
+        rootCauseFactors: [
+          'House address recorded as dummy placeholder string "N/A NULL 000 ST"',
+          'Fails ECI geographic house mapping and postal delivery standards',
+          'High risk of fake voter registration or corrupted address field'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-18 to verify physical dwelling location',
+          'Require voter to submit valid proof of address (utility bill / rent agreement)'
+        ],
+        bloVerificationChecklist: [
+          'Conduct spot visit to Part 18 locality',
+          'Obtain valid address documentation'
+        ],
+        recommendedOwner: 'BLO-18 / ERO AC-165',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Dummy placeholder address anomaly.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Critical dummy address string ("N/A NULL 000 ST") detected. Field spot visit assigned.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-03 11:00:00',
+      updated_at: '2026-08-03 11:00:00'
+    },
+    {
+      id: 'rec-024',
+      epic_number: 'EPIC-WB-2026-88309',
+      voter_name: 'M',
+      relative_name: 'B',
+      relation_type: 'Father',
+      age: 29,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 02',
+      part_number: 'Part 02 (Booth 03-A)',
+      house_address: '7 Strand Road, Kolkata',
+      blo_assigned: 'BLO-02 (S. Mitra)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-03 15:45:00',
+      risk_score: 89,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 89,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Manual Section 3.4 - Minimum Name Character Length Standard',
+        rootCauseFactors: [
+          'Voter name recorded as single character "M" and relative name "B"',
+          'Fails ECI Rule requiring full voter name with at least 2 characters',
+          'Incomplete registration entry submitted via online portal'
+        ],
+        recommendedFieldActions: [
+          'Issue notice to voter to submit Form 8 for full expanded name entry',
+          'Verify original identity documents'
+        ],
+        bloVerificationChecklist: [
+          'Inspect Aadhaar card for full official name',
+          'Obtain Form 8 correction'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Single-character incomplete name entry.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Single-character name entry anomaly ("M" / "B"). Notice issued for full name completion.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-03 15:45:00',
+      updated_at: '2026-08-03 15:45:00'
+    },
+    {
+      id: 'rec-025',
+      epic_number: 'EPIC-WB-2026-88310',
+      voter_name: 'Subodh Kanti Ray',
+      relative_name: 'Minati Ray',
+      relation_type: 'Husband',
+      age: 62,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 15',
+      part_number: 'Part 15 (Booth 17-C)',
+      house_address: '101 Rashbehari Avenue, Kolkata',
+      blo_assigned: 'BLO-15 (R. Ghosh)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-04 10:15:00',
+      risk_score: 92,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 92,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Verification Manual - Gender-Marital Relation Standard Rules',
+        rootCauseFactors: [
+          'Male elector Subodh Kanti Ray (Gender: M) has Relation Type recorded as "Husband" of Minati Ray',
+          'Gender-Marital tag mismatch where male elector is designated with female relative tag',
+          'Data entry transposition during roll digitisation'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-15 to collect Form 8 for relationship tag correction',
+          'Update relative relationship tag to "Father" or correct gender tag'
+        ],
+        bloVerificationChecklist: [
+          'Inspect physical EPIC / Aadhaar',
+          'Collect signed Form 8 application'
+        ],
+        recommendedOwner: 'BLO-15 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Male with Husband relative relation tag.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Gender-relation tag mismatch (Male marked with Husband relation). Field verification active.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-08-04 10:15:00',
+      updated_at: '2026-08-04 10:15:00'
     }
   ];
 

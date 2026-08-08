@@ -35,7 +35,12 @@ describe('Integration Tests: SQLite Database API & Service Layer', () => {
     // Test search filter
     const searchResults = getAllElectoralRecords({ search: 'Rajesh' });
     expect(searchResults.length).toBeGreaterThan(0);
-    expect(searchResults[0].voterName).toContain('Rajesh');
+    expect(searchResults.some(r => r.voterName.includes('Rajesh') || r.relativeName.includes('Rajesh'))).toBe(true);
+
+    // Test category filter for Demographic Inconsistency
+    const demographicInconsistencyRecords = getAllElectoralRecords({ category: 'Demographic Inconsistency' });
+    expect(demographicInconsistencyRecords.length).toBeGreaterThan(0);
+    expect(demographicInconsistencyRecords.every(r => r.category === 'Demographic Inconsistency')).toBe(true);
 
     // Test severity filter
     const highSeverityRecords = getAllElectoralRecords({ severity: 'High' });

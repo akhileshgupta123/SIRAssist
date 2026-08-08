@@ -206,5 +206,70 @@
     "houseAddress": "112 Southern Avenue",
     "bloAssigned": "BLO-21 (S. Roy)",
     "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Amitabh Mukherjee",
+    "epicNumber": "EPIC-WB-2026-88306",
+    "relativeName": "Debasis Mukherjee",
+    "relationType": "Father",
+    "age": 82,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 07",
+    "houseAddress": "44 Lansdowne Road",
+    "bloAssigned": "BLO-07 (A. Ghosh)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Sunita Rani Das",
+    "epicNumber": "EPIC-WB-2026-88307",
+    "relativeName": "Late Haradhan Das",
+    "relationType": "Mother",
+    "age": 41,
+    "gender": "F",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 12",
+    "houseAddress": "18 Lake Terrace",
+    "bloAssigned": "BLO-12 (A. Banerjee)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Vikram Malhotra",
+    "epicNumber": "EPIC-WB-2026-88308",
+    "relativeName": "Rajesh Malhotra",
+    "relationType": "Father",
+    "age": 35,
+    "gender": "M",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 18",
+    "houseAddress": "N/A NULL 000 ST",
+    "bloAssigned": "BLO-18 (P. Roy)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "M",
+    "epicNumber": "EPIC-WB-2026-88309",
+    "relativeName": "B",
+    "relationType": "Father",
+    "age": 29,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 02",
+    "houseAddress": "7 Strand Road",
+    "bloAssigned": "BLO-02 (S. Mitra)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Subodh Kanti Ray",
+    "epicNumber": "EPIC-WB-2026-88310",
+    "relativeName": "Minati Ray",
+    "relationType": "Husband",
+    "age": 62,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 15",
+    "houseAddress": "101 Rashbehari Avenue",
+    "bloAssigned": "BLO-15 (R. Ghosh)",
+    "category": "Demographic Inconsistency"
   }
 ]
