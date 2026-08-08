@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count < 36) {
+  if (count < 42) {
     seedInitialData(database);
   }
 }
@@ -2093,6 +2093,333 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-08-07 10:05:00',
       updated_at: '2026-08-07 10:05:00'
+    },
+    {
+      id: 'rec-038',
+      epic_number: 'EPIC-WB-2026-66101',
+      voter_name: 'Rahul Kailash Sharma',
+      relative_name: 'Kailash Sharma',
+      relation_type: 'Father',
+      age: 28,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 16',
+      part_number: 'Part 16 (Booth 19-B)',
+      house_address: '88 Hazra Road, Kalighat, Kolkata',
+      blo_assigned: 'BLO-16 (S. Dutta)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-07 11:00:00',
+      risk_score: 95,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Parent-Child Age Gap Audit Manual & De-duplication Protocol',
+        rootCauseFactors: [
+          'Infeasible 4-year parent-child age gap (Father age 32 recorded on primary Form 6 vs Son age 28)',
+          'Duplicate enrollment found in AC-165 Jadavpur with corrected father age (58 yrs)'
+        ],
+        recommendedFieldActions: [
+          'Issue ERO verification notice to elector for age document inspection',
+          'Audit Form 6 transcription logs for Father DOB entry error'
+        ],
+        bloVerificationChecklist: [
+          'Inspect original birth certificate / Aadhaar of Rahul Sharma',
+          'Confirm physical age and identity of Kailash Sharma'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 94,
+          similarityReasoning: 'Primary reference record for age gap inconsistency duplicate pair comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary record for parent-child age gap mismatch pair. Cross-constituency duplicate identified in AC-165 Jadavpur.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-07 11:00:00',
+      updated_at: '2026-08-07 11:00:00'
+    },
+    {
+      id: 'rec-039',
+      epic_number: 'EPIC-WB-2026-66102',
+      voter_name: 'Rahul Sharma',
+      relative_name: 'Kailash Prasad Sharma',
+      relation_type: 'Father',
+      age: 28,
+      gender: 'M',
+      assembly_constituency: 'AC-165 Jadavpur, Part 04',
+      part_number: 'Part 04 (Booth 08-A)',
+      house_address: '22 Garfa Main Road, Kolkata',
+      blo_assigned: 'BLO-04 (P. Das)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 11:05:00',
+      risk_score: 96,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-038',
+      duplicate_similarity: 94,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Cross-Constituency Relative Mismatch De-duplication Protocol',
+        rootCauseFactors: [
+          'Cross-constituency duplicate enrollment detected between AC-164 and AC-165 for Rahul Sharma',
+          'Father age recorded as 32 (4-yr biological gap) in primary vs 58 (30-yr gap) in secondary entry'
+        ],
+        recommendedFieldActions: [
+          'Retain secondary record EPIC-WB-2026-66102 after Form 8 age correction',
+          'Initiate Form 7 cancellation of defective primary record in AC-164'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter residence at Garfa Main Road',
+          'Collect signed Form 8 age correction declaration'
+        ],
+        recommendedOwner: 'ERO AC-165 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 94,
+          matchedVoterId: 'rec-038',
+          matchedEpicNumber: 'EPIC-WB-2026-66101',
+          matchedVoterName: 'Rahul Kailash Sharma',
+          matchedConstituency: 'AC-164 Kolkata South, Part 16',
+          similarityReasoning: 'Cross-constituency duplicate enrollment detected with severe father age gap disparity (Father age 32 in primary vs 58 in secondary entry).',
+          matchingFactors: [
+            'Duplicate Voter Match: Rahul Kailash Sharma vs Rahul Sharma',
+            'Relative Name Variant: Kailash Sharma vs Kailash Prasad Sharma',
+            'Father Age Disparity: Infeasible 4-year gap (32 yrs) vs Valid 30-year gap (58 yrs)',
+            'Identical Elector Age & Gender: 28 Yrs (M)'
+          ]
+        },
+        executiveSummary: 'Age/Relative mismatch duplicate pair flagged (94% match). Linked with primary record EPIC-WB-2026-66101.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-07 11:05:00',
+      updated_at: '2026-08-07 11:05:00'
+    },
+    {
+      id: 'rec-040',
+      epic_number: 'EPIC-WB-2026-66201',
+      voter_name: 'Pooja Mukherjee',
+      relative_name: 'Subrata Mukherjee',
+      relation_type: 'Father',
+      age: 26,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 09',
+      part_number: 'Part 09 (Booth 11-B)',
+      house_address: '18 Southern Avenue, Kolkata',
+      blo_assigned: 'BLO-09 (A. Chatterjee)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-07 12:30:00',
+      risk_score: 91,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 91,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Relationship Type Integrity & Dual Enrollment Audit Manual',
+        rootCauseFactors: [
+          'Relationship tag conflict: Marked as "Father" in Part 09 vs "Husband" in Part 14 for same relative Subrata Mukherjee',
+          'Dual Form 6 submission following marriage without address transfer'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-09 to verify current marital status and correct relation tag',
+          'Execute Form 8 relationship update or Form 7 deletion of duplicate entry'
+        ],
+        bloVerificationChecklist: [
+          'Inspect marriage certificate / Aadhaar card',
+          'Obtain single registration confirmation from elector'
+        ],
+        recommendedOwner: 'BLO-09 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 95,
+          similarityReasoning: 'Primary record for relationship type mismatch duplicate pair comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary record for relationship type mismatch pair. Active duplicate found in Part 14.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 12:30:00',
+      updated_at: '2026-08-07 12:30:00'
+    },
+    {
+      id: 'rec-041',
+      epic_number: 'EPIC-WB-2026-66202',
+      voter_name: 'Pooja Mukherjee Chatterjee',
+      relative_name: 'Subrata Mukherjee',
+      relation_type: 'Husband',
+      age: 26,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 14',
+      part_number: 'Part 14 (Booth 16-C)',
+      house_address: '54 Lake Terrace, Kolkata',
+      blo_assigned: 'BLO-14 (S. Sen)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 12:35:00',
+      risk_score: 95,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-040',
+      duplicate_similarity: 95,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Marital Relative Mismatch & Duplicate Eradication Protocol',
+        rootCauseFactors: [
+          'Duplicate enrollment across Part 09 and Part 14 in AC-164 Kolkata South',
+          'Conflicting relationship type tag (Father vs Husband for relative Subrata Mukherjee) following surname expansion'
+        ],
+        recommendedFieldActions: [
+          'Update primary record with Form 8 and delete duplicate card EPIC-WB-2026-66202 under Form 7',
+          'Consolidate voter record under single EPIC'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter residence at Lake Terrace',
+          'Collect Form 7 surrender application'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 95,
+          matchedVoterId: 'rec-040',
+          matchedEpicNumber: 'EPIC-WB-2026-66201',
+          matchedVoterName: 'Pooja Mukherjee',
+          matchedConstituency: 'AC-164 Kolkata South, Part 09',
+          similarityReasoning: 'Duplicate card generated across parts in AC-164 with conflicting relationship type tag (Father vs Husband for same relative name Subrata Mukherjee).',
+          matchingFactors: [
+            'Intra-AC Duplicate Match: AC-164 Part 09 vs Part 14',
+            'Relation Type Conflict: Father vs Husband for relative Subrata Mukherjee',
+            'Name Extension: Pooja Mukherjee vs Pooja Mukherjee Chatterjee',
+            'Identical Age & Gender: 26 Yrs (F)'
+          ]
+        },
+        executiveSummary: 'Relationship type mismatch duplicate pair flagged (95% match). Linked with primary record EPIC-WB-2026-66201.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 12:35:00',
+      updated_at: '2026-08-07 12:35:00'
+    },
+    {
+      id: 'rec-042',
+      epic_number: 'EPIC-WB-2026-66301',
+      voter_name: 'Bikash Chakraborty',
+      relative_name: 'Tarun Chakraborty',
+      relation_type: 'Father',
+      age: 54,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 21',
+      part_number: 'Part 21 (Booth 23-A)',
+      house_address: '112 Southern Avenue, Kolkata',
+      blo_assigned: 'BLO-21 (S. Roy)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-07 14:00:00',
+      risk_score: 97,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 97,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Generational Inversion & Biometric De-duplication Manual',
+        rootCauseFactors: [
+          'Severe father-son biological age gap inversion (Elector age 54 with Father age 24 recorded on Form 6)',
+          'Duplicate enrollment found in AC-165 Jadavpur with correct father age (82 yrs)'
+        ],
+        recommendedFieldActions: [
+          'Order ERO hearing to rectify age inversion and purge duplicate card',
+          'Dispatch BLO-21 to inspect physical birth documents'
+        ],
+        bloVerificationChecklist: [
+          'Verify birth document / Passport of Bikash Chakraborty',
+          'Confirm age of father Tarun Chakraborty'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 96,
+          similarityReasoning: 'Primary record for biological age inversion duplicate pair comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary record for father-son age gap inversion pair (Elector 54 vs Father 24). Duplicate located in AC-165 Jadavpur.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-07 14:00:00',
+      updated_at: '2026-08-07 14:00:00'
+    },
+    {
+      id: 'rec-043',
+      epic_number: 'EPIC-WB-2026-66302',
+      voter_name: 'Bikash Ranjan Chakraborty',
+      relative_name: 'Tarun Kanti Chakraborty',
+      relation_type: 'Father',
+      age: 54,
+      gender: 'M',
+      assembly_constituency: 'AC-165 Jadavpur, Part 12',
+      part_number: 'Part 12 (Booth 15-B)',
+      house_address: '78 Regent Estate, Jadavpur, Kolkata',
+      blo_assigned: 'BLO-12 (N. Ghosal)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 14:05:00',
+      risk_score: 96,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-042',
+      duplicate_similarity: 96,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Cross-Constituency Generational Age Inversion Audit Protocol',
+        rootCauseFactors: [
+          'Cross-constituency duplicate enrollment between AC-164 and AC-165',
+          'Father age inverted as 24 (biological impossibility) in primary record vs 82 in secondary record'
+        ],
+        recommendedFieldActions: [
+          'Retain corrected secondary record EPIC-WB-2026-66302',
+          'Execute Form 7 cancellation of defective primary record in AC-164'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter residence at Regent Estate',
+          'Obtain signature on Form 8 age correction application'
+        ],
+        recommendedOwner: 'ERO AC-165 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 96,
+          matchedVoterId: 'rec-042',
+          matchedEpicNumber: 'EPIC-WB-2026-66301',
+          matchedVoterName: 'Bikash Chakraborty',
+          matchedConstituency: 'AC-164 Kolkata South, Part 21',
+          similarityReasoning: 'Cross-constituency duplicate enrollment flagged with severe relative age inversion (Father age 24 in primary vs 82 in secondary record).',
+          matchingFactors: [
+            'Cross-Constituency Match: AC-164 Part 21 vs AC-165 Part 12',
+            'Generational Age Inversion: Father age 24 (Biological Infeasibility) vs Father age 82',
+            'Phonetic Name Match: Bikash Chakraborty vs Bikash Ranjan Chakraborty',
+            'Identical Age & Gender: 54 Yrs (M)'
+          ]
+        },
+        executiveSummary: 'Biological age gap inversion duplicate pair flagged (96% match). Linked with primary record EPIC-WB-2026-66301.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-07 14:05:00',
+      updated_at: '2026-08-07 14:05:00'
     }
   ];
 

@@ -427,5 +427,83 @@
     "houseAddress": "14 Ashutosh Mukherjee Road",
     "bloAssigned": "BLO-08 (M. Bose)",
     "category": "Deceased/Shifted Flag"
+  },
+  {
+    "voterName": "Rahul Kailash Sharma",
+    "epicNumber": "EPIC-WB-2026-66101",
+    "relativeName": "Kailash Sharma",
+    "relationType": "Father",
+    "age": 28,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 16",
+    "houseAddress": "88 Hazra Road, Kalighat",
+    "bloAssigned": "BLO-16 (S. Dutta)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Rahul Sharma",
+    "epicNumber": "EPIC-WB-2026-66102",
+    "relativeName": "Kailash Prasad Sharma",
+    "relationType": "Father",
+    "age": 28,
+    "gender": "M",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 04",
+    "houseAddress": "22 Garfa Main Road",
+    "bloAssigned": "BLO-04 (P. Das)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Pooja Mukherjee",
+    "epicNumber": "EPIC-WB-2026-66201",
+    "relativeName": "Subrata Mukherjee",
+    "relationType": "Father",
+    "age": 26,
+    "gender": "F",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 09",
+    "houseAddress": "18 Southern Avenue",
+    "bloAssigned": "BLO-09 (A. Chatterjee)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Pooja Mukherjee Chatterjee",
+    "epicNumber": "EPIC-WB-2026-66202",
+    "relativeName": "Subrata Mukherjee",
+    "relationType": "Husband",
+    "age": 26,
+    "gender": "F",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 14",
+    "houseAddress": "54 Lake Terrace",
+    "bloAssigned": "BLO-14 (S. Sen)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Bikash Chakraborty",
+    "epicNumber": "EPIC-WB-2026-66301",
+    "relativeName": "Tarun Chakraborty",
+    "relationType": "Father",
+    "age": 54,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 21",
+    "houseAddress": "112 Southern Avenue",
+    "bloAssigned": "BLO-21 (S. Roy)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Bikash Ranjan Chakraborty",
+    "epicNumber": "EPIC-WB-2026-66302",
+    "relativeName": "Tarun Kanti Chakraborty",
+    "relationType": "Father",
+    "age": 54,
+    "gender": "M",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 12",
+    "houseAddress": "78 Regent Estate, Jadavpur",
+    "bloAssigned": "BLO-12 (N. Ghosal)",
+    "category": "Age/Relative Mismatch"
   }
 ]
