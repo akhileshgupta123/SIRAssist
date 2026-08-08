@@ -141,5 +141,70 @@
     "houseAddress": "19 Gariahat Road, Kolkata",
     "bloAssigned": "BLO-05 (D. Pal)",
     "category": "Transliteration Match"
+  },
+  {
+    "voterName": "Rahul Sharma",
+    "epicNumber": "EPIC-WB-2026-88301",
+    "relativeName": "Kailash Sharma",
+    "relationType": "Father",
+    "age": 28,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 16",
+    "houseAddress": "88 Hazra Road, Kalighat",
+    "bloAssigned": "BLO-16 (S. Dutta)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Sanjay Sen",
+    "epicNumber": "EPIC-WB-2026-88302",
+    "relativeName": "Rajesh Sen",
+    "relationType": "Husband",
+    "age": 34,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 08",
+    "houseAddress": "14/1 Chetla Central Road",
+    "bloAssigned": "BLO-08 (K. Das)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Haripada Naskar",
+    "epicNumber": "EPIC-WB-2026-88303",
+    "relativeName": "Ramprasad Naskar",
+    "relationType": "Father",
+    "age": 132,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 03",
+    "houseAddress": "5/B Kalighat Road",
+    "bloAssigned": "BLO-03 (B. Biswas)",
+    "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Sneha Das",
+    "epicNumber": "EPIC-WB-2026-88304",
+    "relativeName": "Tarun Das",
+    "relationType": "Father",
+    "age": 16,
+    "gender": "F",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 11",
+    "houseAddress": "45 Garia Main Road",
+    "bloAssigned": "BLO-11 (M. Pal)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Bikash Chakraborty",
+    "epicNumber": "EPIC-WB-2026-88305",
+    "relativeName": "Tarun Chakraborty",
+    "relationType": "Father",
+    "age": 54,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 21",
+    "houseAddress": "112 Southern Avenue",
+    "bloAssigned": "BLO-21 (S. Roy)",
+    "category": "Age/Relative Mismatch"
   }
 ]

@@ -927,6 +927,261 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-07-30 10:05:00',
       updated_at: '2026-07-30 10:10:00'
+    },
+    {
+      id: 'rec-016',
+      epic_number: 'EPIC-WB-2026-88301',
+      voter_name: 'Rahul Sharma',
+      relative_name: 'Kailash Sharma',
+      relation_type: 'Father',
+      age: 28,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 16',
+      part_number: 'Part 16 (Booth 19-B)',
+      house_address: '88 Hazra Road, Kalighat, Kolkata',
+      blo_assigned: 'BLO-16 (S. Dutta)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-07-31 09:00:00',
+      risk_score: 96,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Manual Section 5.2 - Parent-Child Biological Generational Gap Rule',
+        rootCauseFactors: [
+          'Applicant Rahul Sharma age 28 lists Father Kailash Sharma age 32 in Part 16 roll',
+          'Infeasible 4-year generational age gap between father and child',
+          'High risk of fraudulent DOB declaration in Form 6 or database transcription error'
+        ],
+        recommendedFieldActions: [
+          'Issue ERO notice to voter and father to produce birth certificate or school leaving certificate',
+          'Dispatch BLO-16 to audit physical family tree'
+        ],
+        bloVerificationChecklist: [
+          'Verify birth document / Passport of applicant',
+          'Check actual biological father name and age'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Standalone demographic inconsistency record.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Critical 4-year parent-child age gap anomaly detected (Father 32 vs Son 28). ERO review active.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-07-31 09:00:00',
+      updated_at: '2026-07-31 09:00:00'
+    },
+    {
+      id: 'rec-017',
+      epic_number: 'EPIC-WB-2026-88302',
+      voter_name: 'Sanjay Sen',
+      relative_name: 'Rajesh Sen',
+      relation_type: 'Husband',
+      age: 34,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 08',
+      part_number: 'Part 08 (Booth 10-A)',
+      house_address: '14/1 Chetla Central Road, Kolkata',
+      blo_assigned: 'BLO-08 (K. Das)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-07-31 11:20:00',
+      risk_score: 90,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 90,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Manual Section 4.1 - Gender & Marital Relation Tag Validation',
+        rootCauseFactors: [
+          'Elector Sanjay Sen marked as Male (M) with Relation Type "Husband"',
+          'Contradiction between gender classification and marital relative designation',
+          'Probable clerical error during Form 6 scanning or data entry operator entry'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-08 to inspect original Form 6 application copy',
+          'Correct relation type tag to "Father" or update gender designation'
+        ],
+        bloVerificationChecklist: [
+          'Inspect physical identity card',
+          'Obtain Form 8 correction application from elector'
+        ],
+        recommendedOwner: 'BLO-08 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Logical demographic attribute mismatch.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Gender-Relation contradiction flagged (Male with "Husband" relative). Field verification assigned.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-07-31 11:20:00',
+      updated_at: '2026-07-31 11:20:00'
+    },
+    {
+      id: 'rec-018',
+      epic_number: 'EPIC-WB-2026-88303',
+      voter_name: 'Haripada Naskar',
+      relative_name: 'Ramprasad Naskar',
+      relation_type: 'Father',
+      age: 132,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 03',
+      part_number: 'Part 03 (Booth 04-B)',
+      house_address: '5/B Kalighat Road, Kolkata',
+      blo_assigned: 'BLO-03 (B. Biswas)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'Critical',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-01 08:45:00',
+      risk_score: 98,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 98,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Anti-Ghost Elector Protocol - Centenarian Status & Deceased Verification',
+        rootCauseFactors: [
+          'Draft roll records elector age as 132 years without senior citizen life-certificate',
+          'High probability of unrecorded death or historical year-of-birth transcription inversion (1894 vs 1994)',
+          'No voter activity recorded in last two general election cycles'
+        ],
+        recommendedFieldActions: [
+          'Priority door-to-door visit by BLO-03 to confirm if voter is living or deceased',
+          'Initiate Form 7 statutory deletion if deceased certificate is retrieved'
+        ],
+        bloVerificationChecklist: [
+          'Physical life-verification at 5/B Kalighat Road',
+          'Obtain family statement or municipal death certificate'
+        ],
+        recommendedOwner: 'BLO-03 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Super-centenarian age anomaly.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Super-centenarian age anomaly (132 years). High probability of un-flagged deceased elector.',
+        aiConfidence: 99
+      }),
+      created_at: '2026-08-01 08:45:00',
+      updated_at: '2026-08-01 08:45:00'
+    },
+    {
+      id: 'rec-019',
+      epic_number: 'EPIC-WB-2026-88304',
+      voter_name: 'Sneha Das',
+      relative_name: 'Tarun Das',
+      relation_type: 'Father',
+      age: 16,
+      gender: 'F',
+      assembly_constituency: 'AC-165 Jadavpur, Part 11',
+      part_number: 'Part 11 (Booth 15-A)',
+      house_address: '45 Garia Main Road, Kolkata',
+      blo_assigned: 'BLO-11 (M. Pal)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-01 14:10:00',
+      risk_score: 97,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 97,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'Representation of the People Act 1950 Section 19 - Minimum Qualifying Age 18 Years',
+        rootCauseFactors: [
+          'Draft roll lists active voter entry with declared age 16 years',
+          'Statutory threshold violation (minimum qualifying age 18 years as of qualifying date)',
+          'Erroneous approval of Form 6 by Electoral Registration Officer'
+        ],
+        recommendedFieldActions: [
+          'Immediate ERO review to purge record under statutory age disqualification',
+          'Issue notice to applicant regarding eligibility on reaching age 18'
+        ],
+        bloVerificationChecklist: [
+          'Verify birth certificate / Secondary school examination admit card',
+          'Confirm exact date of birth'
+        ],
+        recommendedOwner: 'ERO AC-165',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Statutory age qualification violation.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Statutory underage voter enrollment flagged (Age 16). Immediate ERO purge review required.',
+        aiConfidence: 99
+      }),
+      created_at: '2026-08-01 14:10:00',
+      updated_at: '2026-08-01 14:10:00'
+    },
+    {
+      id: 'rec-020',
+      epic_number: 'EPIC-WB-2026-88305',
+      voter_name: 'Bikash Chakraborty',
+      relative_name: 'Tarun Chakraborty',
+      relation_type: 'Father',
+      age: 54,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 21',
+      part_number: 'Part 21 (Booth 25-C)',
+      house_address: '112 Southern Avenue, Kolkata',
+      blo_assigned: 'BLO-21 (S. Roy)',
+      category: 'Age/Relative Mismatch',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-02 10:30:00',
+      risk_score: 92,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 92,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Household Tree Validation - Generational Inversion Rule',
+        rootCauseFactors: [
+          'Elector Bikash Chakraborty age 54 lists Father Tarun Chakraborty age 46',
+          'Generational age inversion where son is listed 8 years older than declared father',
+          'Swapped numeric age fields during roll compilation'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-21 to inspect voter family register',
+          'File Form 8 application for age field transposition correction'
+        ],
+        bloVerificationChecklist: [
+          'Verify Aadhaar / Voter ID of both Bikash and Tarun Chakraborty',
+          'Confirm actual ages and relationship'
+        ],
+        recommendedOwner: 'BLO-21 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 0,
+          similarityReasoning: 'Generational age inversion in household tree.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Generational inversion detected (Son age 54 vs Father age 46). Field correction assigned.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-02 10:30:00',
+      updated_at: '2026-08-02 10:30:00'
     }
   ];
 

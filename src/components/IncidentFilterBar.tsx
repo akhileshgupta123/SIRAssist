@@ -54,10 +54,17 @@ export const IncidentFilterBar: React.FC<FilterBarProps> = ({
         >
           <option value="All">All Categories</option>
           <option value="Demographic Match">Demographic Match</option>
+          <option value="Demographic Inconsistency">Demographic Inconsistency</option>
+          <option value="Age/Relative Mismatch">Age/Relative Mismatch</option>
+          <option value="Phonetic Soundex Match">Phonetic Soundex Match</option>
+          <option value="EPIC Suffix Match">EPIC Suffix Match</option>
+          <option value="Maiden/Married Name Match">Maiden/Married Name Match</option>
+          <option value="Fuzzy Address Match">Fuzzy Address Match</option>
+          <option value="Transliteration Match">Transliteration Match</option>
           <option value="EPIC ID Anomaly">EPIC ID Anomaly</option>
           <option value="Photo Hash Duplicate">Photo Hash Duplicate</option>
           <option value="Bulk Address Cluster">Bulk Address Cluster</option>
-          <option value="Age/Relative Mismatch">Age/Relative Mismatch</option>
+          <option value="Deceased/Shifted Flag">Deceased/Shifted Flag</option>
         </select>
 
         {/* Anomaly Severity */}

@@ -11,6 +11,7 @@ export type SIRStatus =
 
 export type SIRCategory = 
   | 'Demographic Match' 
+  | 'Demographic Inconsistency'
   | 'EPIC ID Anomaly' 
   | 'Photo Hash Duplicate' 
   | 'Bulk Address Cluster' 
