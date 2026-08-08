@@ -271,5 +271,83 @@
     "houseAddress": "101 Rashbehari Avenue",
     "bloAssigned": "BLO-15 (R. Ghosh)",
     "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Arjun Chakraborty",
+    "epicNumber": "EPIC-WB-2026-99101",
+    "relativeName": "Somnath Chakraborty",
+    "relationType": "Father",
+    "age": 36,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 10",
+    "houseAddress": "24 Gariahat Road, Ballygunge",
+    "bloAssigned": "BLO-10 (S. Ganguly)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Arjun Kumar Chakraborty",
+    "epicNumber": "EPIC-WB-2026-99102",
+    "relativeName": "Somnath Chakraborty",
+    "relationType": "Father",
+    "age": 36,
+    "gender": "M",
+    "assemblyConstituency": "AC-167 Maniktala",
+    "partNumber": "Part 32",
+    "houseAddress": "112 Kankurgachi Road",
+    "bloAssigned": "BLO-32 (R. Nandi)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Sarmistha Ganguly",
+    "epicNumber": "EPIC-WB-2026-99201",
+    "relativeName": "Dipankar Ganguly",
+    "relationType": "Husband",
+    "age": 29,
+    "gender": "F",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 18",
+    "houseAddress": "75 Southern Avenue",
+    "bloAssigned": "BLO-18 (P. Roy)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Sarmistha Roy",
+    "epicNumber": "EPIC-WB-2026-99202",
+    "relativeName": "Alok Roy",
+    "relationType": "Husband",
+    "age": 29,
+    "gender": "F",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 09",
+    "houseAddress": "34 Prince Anwar Shah Road",
+    "bloAssigned": "BLO-09 (M. Roy)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Pradeep Kumar Nandi",
+    "epicNumber": "EPIC-WB-2026-99301",
+    "relativeName": "Bimal Nandi",
+    "relationType": "Father",
+    "age": 50,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 15",
+    "houseAddress": "12/1 Hazra Road",
+    "bloAssigned": "BLO-15 (R. Ghosh)",
+    "category": "Photo Hash Duplicate"
+  },
+  {
+    "voterName": "Pradip Nandi",
+    "epicNumber": "EPIC-WB-2026-99302",
+    "relativeName": "Bimal Kumar Nandi",
+    "relationType": "Father",
+    "age": 50,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 15",
+    "houseAddress": "12/1 Hazra Road, Flat B",
+    "bloAssigned": "BLO-15 (R. Ghosh)",
+    "category": "Photo Hash Duplicate"
   }
 ]

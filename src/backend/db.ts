@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count < 25) {
+  if (count < 30) {
     seedInitialData(database);
   }
 }
@@ -1437,6 +1437,334 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-08-04 10:15:00',
       updated_at: '2026-08-04 10:15:00'
+    },
+    {
+      id: 'rec-026',
+      epic_number: 'EPIC-WB-2026-99101',
+      voter_name: 'Arjun Chakraborty',
+      relative_name: 'Somnath Chakraborty',
+      relation_type: 'Father',
+      age: 36,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 10',
+      part_number: 'Part 10 (Booth 12-A)',
+      house_address: '24 Gariahat Road, Ballygunge, Kolkata',
+      blo_assigned: 'BLO-10 (S. Ganguly)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-04 11:20:00',
+      risk_score: 94,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 94,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Anti-Duplicate Photo Hash Algorithm Guideline - Section 8.1',
+        rootCauseFactors: [
+          'Perceptual photo hash algorithm (pHash) detected 97.4% facial vector similarity with record EPIC-WB-2026-99102 in AC-167',
+          'Same Father Name (Somnath Chakraborty) and age (36)',
+          'Cross-constituency duplicate registration'
+        ],
+        recommendedFieldActions: [
+          'Verify physical residence of voter in AC-164 vs AC-167',
+          'Issue Section 22 hearing notice to elector'
+        ],
+        bloVerificationChecklist: [
+          'Inspect original passport photo provided during Form 6 submission',
+          'Obtain signed declaration of single constituency enrollment'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 97,
+          similarityReasoning: 'Primary reference record for cross-constituency photo hash duplicate comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary photo hash reference record. Linked with secondary duplicate EPIC-WB-2026-99102.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-04 11:20:00',
+      updated_at: '2026-08-04 11:20:00'
+    },
+    {
+      id: 'rec-027',
+      epic_number: 'EPIC-WB-2026-99102',
+      voter_name: 'Arjun Kumar Chakraborty',
+      relative_name: 'Somnath Chakraborty',
+      relation_type: 'Father',
+      age: 36,
+      gender: 'M',
+      assembly_constituency: 'AC-167 Maniktala, Part 32',
+      part_number: 'Part 32 (Booth 05-B)',
+      house_address: '112 Kankurgachi Road, Kolkata',
+      blo_assigned: 'BLO-32 (R. Nandi)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-04 11:25:00',
+      risk_score: 96,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-026',
+      duplicate_similarity: 97,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Automated Biometric & Photo Hash Identification Manual',
+        rootCauseFactors: [
+          'Facial image pHash algorithm returned 97.4% perceptual similarity vector match between EPIC photos in AC-164 and AC-167',
+          'Cross-constituency duplicate registration across Kolkata South and Maniktala'
+        ],
+        recommendedFieldActions: [
+          'Purge duplicate record after ERO notice under Section 22',
+          'Collect written surrender request for AC-167 EPIC'
+        ],
+        bloVerificationChecklist: [
+          'Confirm voter moved to AC-164 Gariahat Road',
+          'Collect written statement from elector'
+        ],
+        recommendedOwner: 'ERO AC-167',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 97,
+          matchedVoterId: 'rec-026',
+          matchedEpicNumber: 'EPIC-WB-2026-99101',
+          matchedVoterName: 'Arjun Chakraborty',
+          matchedConstituency: 'AC-164 Kolkata South, Part 10',
+          similarityReasoning: 'Facial image pHash algorithm returned 97.4% perceptual similarity vector match between EPIC photos in AC-164 and AC-167.',
+          matchingFactors: [
+            'Photo Hash Match: 97.4% Perceptual Hash Vector Similarity',
+            'Same Father Name: Somnath Chakraborty',
+            'Identical Age & Gender: 36 Yrs (M)',
+            'Name Variant: Arjun Chakraborty vs Arjun Kumar Chakraborty'
+          ]
+        },
+        executiveSummary: 'Photo hash duplicate flagged (97% match). Linked with primary record EPIC-WB-2026-99101.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-04 11:25:00',
+      updated_at: '2026-08-04 11:25:00'
+    },
+    {
+      id: 'rec-028',
+      epic_number: 'EPIC-WB-2026-99201',
+      voter_name: 'Sarmistha Ganguly',
+      relative_name: 'Dipankar Ganguly',
+      relation_type: 'Husband',
+      age: 29,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 18',
+      part_number: 'Part 18 (Booth 21-A)',
+      house_address: '75 Southern Avenue, Lake Gardens, Kolkata',
+      blo_assigned: 'BLO-18 (P. Roy)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-05 09:10:00',
+      risk_score: 92,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 92,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Anti-Spoofing Biometric Photo Audit Guidelines',
+        rootCauseFactors: [
+          'Deep neural network facial embedding model detected 98.2% photo match with record EPIC-WB-2026-99202 in AC-165',
+          'Different registered relative/surname (Ganguly vs Roy) with identical photo payload'
+        ],
+        recommendedFieldActions: [
+          'Order joint ERO hearing for identity verification',
+          'Audit original Form 6 photo upload meta-data'
+        ],
+        bloVerificationChecklist: [
+          'Physical face match verification by BLO-18',
+          'Inspect Aadhaar & Passport identity proof'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 98,
+          similarityReasoning: 'Primary photo reference record under critical facial embedding match investigation.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Critical facial embedding photo match (98%) across surnames. ERO hearing scheduled.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-05 09:10:00',
+      updated_at: '2026-08-05 09:10:00'
+    },
+    {
+      id: 'rec-029',
+      epic_number: 'EPIC-WB-2026-99202',
+      voter_name: 'Sarmistha Roy',
+      relative_name: 'Alok Roy',
+      relation_type: 'Husband',
+      age: 29,
+      gender: 'F',
+      assembly_constituency: 'AC-165 Jadavpur, Part 09',
+      part_number: 'Part 09 (Booth 11-C)',
+      house_address: '34 Prince Anwar Shah Road, Kolkata',
+      blo_assigned: 'BLO-09 (M. Roy)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-05 09:15:00',
+      risk_score: 98,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-028',
+      duplicate_similarity: 98,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 98,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Facial Biometric & Photo Hash Duplicate Detection Standard',
+        rootCauseFactors: [
+          'Deep neural network facial embedding model detected 98.2% photo match with Sarmistha Ganguly (EPIC-WB-2026-99201)',
+          'Identical photo file payload ingested under different surname and relative name'
+        ],
+        recommendedFieldActions: [
+          'Issue Form 7 cancellation notice for secondary registration',
+          'File report with Electoral Registration Officer'
+        ],
+        bloVerificationChecklist: [
+          'Verify physical residence at Prince Anwar Shah Road',
+          'Collect written statement regarding dual photo submission'
+        ],
+        recommendedOwner: 'ERO AC-165',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 98,
+          matchedVoterId: 'rec-028',
+          matchedEpicNumber: 'EPIC-WB-2026-99201',
+          matchedVoterName: 'Sarmistha Ganguly',
+          matchedConstituency: 'AC-164 Kolkata South, Part 18',
+          similarityReasoning: 'Deep neural network facial embedding model detected 98.2% photo match across different registered surnames (Ganguly vs Roy).',
+          matchingFactors: [
+            'Photo Hash Match: 98.2% Facial Neural Embedding Similarity',
+            'Identical Photo Binary File Payload',
+            'Same Age & Gender: 29 Yrs (F)',
+            'Surname Disparity: Ganguly vs Roy'
+          ]
+        },
+        executiveSummary: 'Critical photo hash duplicate pair detected (98% match). Linked with primary record EPIC-WB-2026-99201.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-05 09:15:00',
+      updated_at: '2026-08-05 09:15:00'
+    },
+    {
+      id: 'rec-030',
+      epic_number: 'EPIC-WB-2026-99301',
+      voter_name: 'Pradeep Kumar Nandi',
+      relative_name: 'Bimal Nandi',
+      relation_type: 'Father',
+      age: 50,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 15',
+      part_number: 'Part 15 (Booth 18-B)',
+      house_address: '12/1 Hazra Road, Kolkata',
+      blo_assigned: 'BLO-15 (R. Ghosh)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-06 14:00:00',
+      risk_score: 89,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 89,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Intra-Booth Photo Hash Integrity Audit',
+        rootCauseFactors: [
+          'Intra-booth photo hash audit detected identical passport photo binary used in two entries in Part 15',
+          'Near-identical spelling of voter and father name at same address'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-15 to confirm if single individual was assigned two separate EPIC numbers',
+          'Merge entries under single primary EPIC'
+        ],
+        bloVerificationChecklist: [
+          'Conduct house visit to 12/1 Hazra Road',
+          'Verify physical EPIC cards held by elector'
+        ],
+        recommendedOwner: 'BLO-15 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 96,
+          similarityReasoning: 'Primary intra-booth reference record for photo hash match comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Intra-booth photo duplicate flagged. Field verification assigned to BLO-15.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-06 14:00:00',
+      updated_at: '2026-08-06 14:00:00'
+    },
+    {
+      id: 'rec-031',
+      epic_number: 'EPIC-WB-2026-99302',
+      voter_name: 'Pradip Nandi',
+      relative_name: 'Bimal Kumar Nandi',
+      relation_type: 'Father',
+      age: 50,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 15',
+      part_number: 'Part 15 (Booth 18-B)',
+      house_address: '12/1 Hazra Road, Flat B, Kolkata',
+      blo_assigned: 'BLO-15 (R. Ghosh)',
+      category: 'Photo Hash Duplicate',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-06 14:05:00',
+      risk_score: 95,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-030',
+      duplicate_similarity: 96,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Intra-Booth Duplicate Eradication Protocol',
+        rootCauseFactors: [
+          'Intra-part photo hash match (96.1%) with primary entry EPIC-WB-2026-99301',
+          'Dual EPIC card generation for same individual at same address during digitisation'
+        ],
+        recommendedFieldActions: [
+          'Initiate deletion of secondary card EPIC-WB-2026-99302 under Form 7',
+          'Issue single updated EPIC card'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter signature on Form 7 surrender statement',
+          'Retrieve duplicate EPIC card'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 96,
+          matchedVoterId: 'rec-030',
+          matchedEpicNumber: 'EPIC-WB-2026-99301',
+          matchedVoterName: 'Pradeep Kumar Nandi',
+          matchedConstituency: 'AC-164 Kolkata South, Part 15',
+          similarityReasoning: 'Intra-part photo hash audit flagged identical passport photograph binary payload used in two separate Form 6 applications.',
+          matchingFactors: [
+            'Photo Hash Match: 96.1% Perceptual Image Similarity',
+            'Same House Address: 12/1 Hazra Road',
+            'Phonetic Name Match: Pradeep vs Pradip',
+            'Father Name Variant: Bimal vs Bimal Kumar'
+          ]
+        },
+        executiveSummary: 'Intra-booth photo hash duplicate pair flagged (96% match). Linked to primary record EPIC-WB-2026-99301.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-06 14:05:00',
+      updated_at: '2026-08-06 14:05:00'
     }
   ];
 
