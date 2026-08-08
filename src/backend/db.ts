@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count < 30) {
+  if (count < 36) {
     seedInitialData(database);
   }
 }
@@ -1765,6 +1765,334 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-08-06 14:05:00',
       updated_at: '2026-08-06 14:05:00'
+    },
+    {
+      id: 'rec-032',
+      epic_number: 'EPIC-WB-2026-77401',
+      voter_name: 'Sudip Kumar Roy',
+      relative_name: 'Bhabesh Roy',
+      relation_type: 'Father',
+      age: 44,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 12',
+      part_number: 'Part 12 (Booth 14-A)',
+      house_address: '42 Hazra Road, Kalighat, Kolkata',
+      blo_assigned: 'BLO-12 (A. Banerjee)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-06 09:00:00',
+      risk_score: 94,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 94,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Manual Section 6.3 - Shifted Elector Eradication & Form 7 Audit',
+        rootCauseFactors: [
+          'Elector relocated from AC-164 Kolkata South to AC-160 Bidhannagar (Salt Lake)',
+          'Form 6 registered in AC-160 without Form 7 deletion in source constituency AC-164',
+          'Active dual registration detected across constituencies'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-12 to confirm non-residence at 42 Hazra Road',
+          'Initiate Form 7 deletion notice in source AC-164 constituency'
+        ],
+        bloVerificationChecklist: [
+          'Conduct spot visit to 42 Hazra Road to confirm physical departure',
+          'Collect confirmation statement from current residents'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 96,
+          similarityReasoning: 'Primary source registration for shifted elector cross-constituency duplicate comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary source record for shifted elector. Active duplicate found in AC-160 Bidhannagar.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-06 09:00:00',
+      updated_at: '2026-08-06 09:00:00'
+    },
+    {
+      id: 'rec-033',
+      epic_number: 'EPIC-WB-2026-77402',
+      voter_name: 'Sudip Roy',
+      relative_name: 'Bhabesh Chandra Roy',
+      relation_type: 'Father',
+      age: 44,
+      gender: 'M',
+      assembly_constituency: 'AC-160 Bidhannagar, Part 04',
+      part_number: 'Part 04 (Booth 06-B)',
+      house_address: 'Block FE-19 Sector-III, Salt Lake, Kolkata',
+      blo_assigned: 'BLO-04 (S. Majumdar)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-06 09:05:00',
+      risk_score: 96,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-032',
+      duplicate_similarity: 96,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Inter-Constituency Shifted Voter De-duplication Protocol',
+        rootCauseFactors: [
+          'Shifted elector registered new Form 6 in AC-160 Salt Lake without Form 7 deletion in source AC-164',
+          'Demographic vector match (96.2%) across voter name, father name, and birth year'
+        ],
+        recommendedFieldActions: [
+          'Retain new registration in AC-160 Bidhannagar after voter Form 8A confirmation',
+          'Notify ERO AC-164 to execute statutory Form 7 deletion of old record'
+        ],
+        bloVerificationChecklist: [
+          'Verify current physical residence at FE-19 Sector-III Salt Lake',
+          'Obtain signed Form 8A migration declaration from elector'
+        ],
+        recommendedOwner: 'ERO AC-160 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 96,
+          matchedVoterId: 'rec-032',
+          matchedEpicNumber: 'EPIC-WB-2026-77401',
+          matchedVoterName: 'Sudip Kumar Roy',
+          matchedConstituency: 'AC-164 Kolkata South, Part 12',
+          similarityReasoning: 'Elector relocated from AC-164 Kolkata South to AC-160 Bidhannagar (Salt Lake) without Form 7 deletion of source roll entry.',
+          matchingFactors: [
+            'Shifted Elector Match: Relocated voter cross-constituency registration',
+            'Phonetic Name Match: Sudip Kumar Roy vs Sudip Roy',
+            'Same Father Name: Bhabesh Roy vs Bhabesh Chandra Roy',
+            'Identical Age & Gender: 44 Yrs (M)'
+          ]
+        },
+        executiveSummary: 'Shifted voter duplicate pair flagged (96% match). Linked with primary source record EPIC-WB-2026-77401.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-08-06 09:05:00',
+      updated_at: '2026-08-06 09:05:00'
+    },
+    {
+      id: 'rec-034',
+      epic_number: 'EPIC-WB-2026-77501',
+      voter_name: 'Manorama Devi',
+      relative_name: 'Late Rameshwar Prasad',
+      relation_type: 'Husband',
+      age: 78,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 05',
+      part_number: 'Part 05 (Booth 07-B)',
+      house_address: '15 Chetla Central Road, Kolkata',
+      blo_assigned: 'BLO-05 (D. Pal)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'Critical',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-06 11:30:00',
+      risk_score: 98,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 98,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Deceased Elector Verification & Statutory Form 7 Deletion Rules',
+        rootCauseFactors: [
+          'Municipal death registration received for elector at 15 Chetla Central Road',
+          'Un-purged active entry in AC-164 and residual duplicate registration in AC-165 Jadavpur'
+        ],
+        recommendedFieldActions: [
+          'BLO-05 spot verification to retrieve municipal death certificate',
+          'Initiate Form 7 statutory deletion proceedings'
+        ],
+        bloVerificationChecklist: [
+          'Inspect death certificate / hospital record',
+          'Obtain signature of immediate kin on Form 7 application'
+        ],
+        recommendedOwner: 'BLO-05 / ERO AC-164',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 97,
+          similarityReasoning: 'Primary deceased elector reference record flagged for statutory roll purge.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Deceased elector record flagged via municipal registry. Secondary residual entry found in AC-165.',
+        aiConfidence: 99
+      }),
+      created_at: '2026-08-06 11:30:00',
+      updated_at: '2026-08-06 11:30:00'
+    },
+    {
+      id: 'rec-035',
+      epic_number: 'EPIC-WB-2026-77502',
+      voter_name: 'Manorama Devi Prasad',
+      relative_name: 'Late Rameshwar Prasad',
+      relation_type: 'Husband',
+      age: 78,
+      gender: 'F',
+      assembly_constituency: 'AC-165 Jadavpur, Part 14',
+      part_number: 'Part 14 (Booth 19-A)',
+      house_address: '88 Prince Anwar Shah Road, Kolkata',
+      blo_assigned: 'BLO-14 (K. Sengupta)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-06 11:35:00',
+      risk_score: 97,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-034',
+      duplicate_similarity: 97,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 97,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Anti-Ghost Elector & Multi-Location Deceased De-duplication Manual',
+        rootCauseFactors: [
+          'Municipal death certificate issued for elector Manorama Devi in AC-164',
+          'Residual active duplicate entry found registered under extended family address in AC-165 Jadavpur'
+        ],
+        recommendedFieldActions: [
+          'Execute simultaneous Form 7 deletion in both AC-164 and AC-165',
+          'Purge ghost record to maintain draft roll purity'
+        ],
+        bloVerificationChecklist: [
+          'Verify non-residence at 88 Prince Anwar Shah Road',
+          'Cross-check municipal death record registration ID'
+        ],
+        recommendedOwner: 'ERO AC-165',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 97,
+          matchedVoterId: 'rec-034',
+          matchedEpicNumber: 'EPIC-WB-2026-77501',
+          matchedVoterName: 'Manorama Devi',
+          matchedConstituency: 'AC-164 Kolkata South, Part 05',
+          similarityReasoning: 'Deceased elector reported in AC-164 municipal registry retains residual active duplicate entry in AC-165 Jadavpur.',
+          matchingFactors: [
+            'Deceased Elector Flag: Municipal death certificate match',
+            'Exact Name & Relative Match: Manorama Devi / Husband Late Rameshwar Prasad',
+            'Identical Age & Gender: 78 Yrs (F)',
+            'Multi-Constituency Residual Entry: AC-164 vs AC-165'
+          ]
+        },
+        executiveSummary: 'Deceased elector duplicate pair flagged (97% match). Linked with primary record EPIC-WB-2026-77501.',
+        aiConfidence: 99
+      }),
+      created_at: '2026-08-06 11:35:00',
+      updated_at: '2026-08-06 11:35:00'
+    },
+    {
+      id: 'rec-036',
+      epic_number: 'EPIC-WB-2026-77601',
+      voter_name: 'Amalendu Bhattacharya',
+      relative_name: 'Tarapada Bhattacharya',
+      relation_type: 'Father',
+      age: 52,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 22',
+      part_number: 'Part 22 (Booth 26-A)',
+      house_address: '108 Rashbehari Avenue, Kolkata',
+      blo_assigned: 'BLO-22 (T. Das)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-07 10:00:00',
+      risk_score: 91,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 91,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Permanent Migration Audit Guidelines',
+        rootCauseFactors: [
+          'BLO Part 22 reported elector permanently shifted during door-to-door SIR audit',
+          'Demographic match found with new active registration in AC-159 Bhabanipur'
+        ],
+        recommendedFieldActions: [
+          'ERO review to approve Form 7 deletion in source Part 22',
+          'Verify transfer request in AC-159'
+        ],
+        bloVerificationChecklist: [
+          'Obtain neighbor verification statement confirming permanent migration',
+          'Verify Form 8A shift application ID'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 95,
+          similarityReasoning: 'Primary source entry for permanently shifted elector.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Permanently shifted elector entry flagged in AC-164. Active duplicate entry located in AC-159.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 10:00:00',
+      updated_at: '2026-08-07 10:00:00'
+    },
+    {
+      id: 'rec-037',
+      epic_number: 'EPIC-WB-2026-77602',
+      voter_name: 'Amalendu Bhattacharjee',
+      relative_name: 'Tarapada Bhattacharjee',
+      relation_type: 'Father',
+      age: 52,
+      gender: 'M',
+      assembly_constituency: 'AC-159 Bhabanipur, Part 08',
+      part_number: 'Part 08 (Booth 10-C)',
+      house_address: '14 Ashutosh Mukherjee Road, Kolkata',
+      blo_assigned: 'BLO-08 (M. Bose)',
+      category: 'Deceased/Shifted Flag',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 10:05:00',
+      risk_score: 95,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-036',
+      duplicate_similarity: 95,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Transliterated Migration & Shifted Voter De-duplication Manual',
+        rootCauseFactors: [
+          'Permanently shifted elector enrolled in AC-159 Bhabanipur with transliterated surname spelling (Bhattacharjee)',
+          'Source record in AC-164 Kolkata South remains active without Form 7 deletion'
+        ],
+        recommendedFieldActions: [
+          'Retain AC-159 entry upon Form 8A confirmation',
+          'Issue Form 7 deletion notice to source record in AC-164'
+        ],
+        bloVerificationChecklist: [
+          'Inspect rent agreement / electricity bill at Ashutosh Mukherjee Road',
+          'Verify voter identity document'
+        ],
+        recommendedOwner: 'ERO AC-159 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 95,
+          matchedVoterId: 'rec-036',
+          matchedEpicNumber: 'EPIC-WB-2026-77601',
+          matchedVoterName: 'Amalendu Bhattacharya',
+          matchedConstituency: 'AC-164 Kolkata South, Part 22',
+          similarityReasoning: 'Shifted elector registered in AC-159 Bhabanipur while source entry in AC-164 Kolkata South remains active.',
+          matchingFactors: [
+            'Shifted Voter Match: Permanent relocation from AC-164 to AC-159',
+            'Transliteration Match: Bhattacharya vs Bhattacharjee',
+            'Same Father Name: Tarapada Bhattacharya vs Tarapada Bhattacharjee',
+            'Identical Age & Gender: 52 Yrs (M)'
+          ]
+        },
+        executiveSummary: 'Shifted elector duplicate pair flagged (95% match). Linked with primary record EPIC-WB-2026-77601.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 10:05:00',
+      updated_at: '2026-08-07 10:05:00'
     }
   ];
 
