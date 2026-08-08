@@ -505,5 +505,83 @@
     "houseAddress": "78 Regent Estate, Jadavpur",
     "bloAssigned": "BLO-12 (N. Ghosal)",
     "category": "Age/Relative Mismatch"
+  },
+  {
+    "voterName": "Subhas Chandra Bose Ray",
+    "epicNumber": "EPIC-WB-2026-55201",
+    "relativeName": "Amarendra Bose Ray",
+    "relationType": "Father",
+    "age": 38,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 15",
+    "houseAddress": "101 Rashbehari Avenue",
+    "bloAssigned": "BLO-15 (R. Ghosh)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Subhash Ray",
+    "epicNumber": "EPIC-WB-2026-55202",
+    "relativeName": "Amarendra Nath Ray",
+    "relationType": "Father",
+    "age": 38,
+    "gender": "M",
+    "assemblyConstituency": "AC-165 Jadavpur",
+    "partNumber": "Part 08",
+    "houseAddress": "101/A Rashbehari Avenue Ext",
+    "bloAssigned": "BLO-08 (S. Pal)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Sanjay Sen",
+    "epicNumber": "EPIC-WB-2026-55301",
+    "relativeName": "Rajesh Sen",
+    "relationType": "Father",
+    "age": 34,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 08",
+    "houseAddress": "14/1 Chetla Central Road",
+    "bloAssigned": "BLO-08 (K. Das)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Sanjay Kumar Sen",
+    "epicNumber": "EPIC-WB-2026-55302",
+    "relativeName": "Rajesh Sen",
+    "relationType": "Husband",
+    "age": 34,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 12",
+    "houseAddress": "14/1 Chetla Central Road, Flat 1B",
+    "bloAssigned": "BLO-12 (A. Banerjee)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "Monojit Bandyopadhyay",
+    "epicNumber": "EPIC-WB-2026-55401",
+    "relativeName": "Bireswar Bandyopadhyay",
+    "relationType": "Father",
+    "age": 42,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 02",
+    "houseAddress": "7 Strand Road",
+    "bloAssigned": "BLO-02 (S. Mitra)",
+    "category": "Demographic Inconsistency"
+  },
+  {
+    "voterName": "M",
+    "epicNumber": "EPIC-WB-2026-55402",
+    "relativeName": "B",
+    "relationType": "Father",
+    "age": 42,
+    "gender": "M",
+    "assemblyConstituency": "AC-164 Kolkata South",
+    "partNumber": "Part 02",
+    "houseAddress": "7 Strand Road, Flat 2A",
+    "bloAssigned": "BLO-02 (S. Mitra)",
+    "category": "Demographic Inconsistency"
   }
 ]

@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count < 42) {
+  if (count < 48) {
     seedInitialData(database);
   }
 }
@@ -2420,6 +2420,334 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-08-07 14:05:00',
       updated_at: '2026-08-07 14:05:00'
+    },
+    {
+      id: 'rec-044',
+      epic_number: 'EPIC-WB-2026-55201',
+      voter_name: 'Subhas Chandra Bose Ray',
+      relative_name: 'Amarendra Bose Ray',
+      relation_type: 'Father',
+      age: 38,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 15',
+      part_number: 'Part 15 (Booth 17-C)',
+      house_address: '101 Rashbehari Avenue, Kolkata',
+      blo_assigned: 'BLO-15 (R. Ghosh)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-07 15:00:00',
+      risk_score: 94,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 94,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI SIR Multi-Name Structural Variance & Cross-AC Demographic Audit',
+        rootCauseFactors: [
+          'Voter registered in AC-164 under full middle name "Subhas Chandra Bose Ray"',
+          'Matching record under abbreviated "Subhash Ray" detected in AC-165 Jadavpur',
+          'Demographic vector match score 95% across age, gender, and relative name'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-15 to verify official voter identity document',
+          'Consolidate entry under verified single EPIC card'
+        ],
+        bloVerificationChecklist: [
+          'Inspect Passport / Aadhaar for official full legal name',
+          'Obtain Form 8 declaration for name normalization'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 95,
+          similarityReasoning: 'Primary reference record for cross-constituency demographic name variance pair.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary reference record for demographic name variance pair. Linked duplicate located in AC-165 Jadavpur.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-07 15:00:00',
+      updated_at: '2026-08-07 15:00:00'
+    },
+    {
+      id: 'rec-045',
+      epic_number: 'EPIC-WB-2026-55202',
+      voter_name: 'Subhash Ray',
+      relative_name: 'Amarendra Nath Ray',
+      relation_type: 'Father',
+      age: 38,
+      gender: 'M',
+      assembly_constituency: 'AC-165 Jadavpur, Part 08',
+      part_number: 'Part 08 (Booth 12-A)',
+      house_address: '101/A Rashbehari Avenue Ext, Kolkata',
+      blo_assigned: 'BLO-08 (S. Pal)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 15:05:00',
+      risk_score: 96,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-044',
+      duplicate_similarity: 95,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 - Prohibition of Multi-Name Dual Registration',
+        rootCauseFactors: [
+          'Cross-constituency duplicate entry between AC-164 and AC-165',
+          'Middle name omission (Subhas Chandra Bose Ray vs Subhash Ray) with identical father/age parameters'
+        ],
+        recommendedFieldActions: [
+          'Purge secondary card EPIC-WB-2026-55202 under Form 7 statutory notice',
+          'Retain primary master record in AC-164'
+        ],
+        bloVerificationChecklist: [
+          'Verify current physical residence at Rashbehari Avenue Ext',
+          'Collect signed Form 7 surrender consent'
+        ],
+        recommendedOwner: 'ERO AC-165 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 95,
+          matchedVoterId: 'rec-044',
+          matchedEpicNumber: 'EPIC-WB-2026-55201',
+          matchedVoterName: 'Subhas Chandra Bose Ray',
+          matchedConstituency: 'AC-164 Kolkata South, Part 15',
+          similarityReasoning: 'Demographic inconsistency duplicate pair flagged across constituencies due to name structure variation (Subhas Chandra Bose Ray vs Subhash Ray) and identical father/age match.',
+          matchingFactors: [
+            'Cross-Constituency Match: AC-164 Part 15 vs AC-165 Part 08',
+            'Demographic Name Variance: Subhas Chandra Bose Ray vs Subhash Ray',
+            'Relative Name Match: Amarendra Bose Ray vs Amarendra Nath Ray',
+            'Identical Age & Gender: 38 Yrs (M)'
+          ]
+        },
+        executiveSummary: 'Demographic inconsistency duplicate pair flagged (95% match). Linked with primary record EPIC-WB-2026-55201.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-08-07 15:05:00',
+      updated_at: '2026-08-07 15:05:00'
+    },
+    {
+      id: 'rec-046',
+      epic_number: 'EPIC-WB-2026-55301',
+      voter_name: 'Sanjay Sen',
+      relative_name: 'Rajesh Sen',
+      relation_type: 'Father',
+      age: 34,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 08',
+      part_number: 'Part 08 (Booth 10-A)',
+      house_address: '14/1 Chetla Central Road, Kolkata',
+      blo_assigned: 'BLO-08 (K. Das)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-08-07 16:00:00',
+      risk_score: 90,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 90,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Manual Section 4.1 - Gender & Relation Tag Consistency Validation',
+        rootCauseFactors: [
+          'Primary valid record registered in Part 08 under Father relative relation tag',
+          'Duplicate entry in Part 12 generated with conflicting "Husband" relation tag for Male voter'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-08 to verify voter identity and correct relation tag',
+          'Consolidate dual entries into single Part 08 EPIC'
+        ],
+        bloVerificationChecklist: [
+          'Inspect physical voter ID card',
+          'Obtain Form 8 correction confirmation'
+        ],
+        recommendedOwner: 'BLO-08 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 94,
+          similarityReasoning: 'Primary record for relation tag contradiction duplicate pair comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary record for demographic relation tag contradiction pair. Active duplicate detected in Part 12.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-08-07 16:00:00',
+      updated_at: '2026-08-07 16:00:00'
+    },
+    {
+      id: 'rec-047',
+      epic_number: 'EPIC-WB-2026-55302',
+      voter_name: 'Sanjay Kumar Sen',
+      relative_name: 'Rajesh Sen',
+      relation_type: 'Husband',
+      age: 34,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 12',
+      part_number: 'Part 12 (Booth 14-C)',
+      house_address: '14/1 Chetla Central Road, Flat 1B, Kolkata',
+      blo_assigned: 'BLO-12 (A. Banerjee)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 16:05:00',
+      risk_score: 94,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-046',
+      duplicate_similarity: 94,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 94,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Intra-Constituency Demographic Relation Contradiction Audit',
+        rootCauseFactors: [
+          'Intra-AC duplicate card generated across Part 08 and Part 12 in AC-164',
+          'Conflicting relation tag (Father in Part 08 vs Husband for Male voter in Part 12)'
+        ],
+        recommendedFieldActions: [
+          'Issue Form 7 cancellation of defective duplicate EPIC-WB-2026-55302',
+          'Retain primary master card in Part 08'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter residence at Chetla Central Road',
+          'Collect signed Form 7 surrender note'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 94,
+          matchedVoterId: 'rec-046',
+          matchedEpicNumber: 'EPIC-WB-2026-55301',
+          matchedVoterName: 'Sanjay Sen',
+          matchedConstituency: 'AC-164 Kolkata South, Part 08',
+          similarityReasoning: 'Demographic inconsistency duplicate pair flagged in AC-164 with conflicting relation tag (Father in Part 08 vs Husband for Male voter in Part 12).',
+          matchingFactors: [
+            'Intra-AC Duplicate Match: Part 08 vs Part 12',
+            'Gender-Relation Tag Conflict: Father tag vs Incorrect Husband tag for Male voter',
+            'Phonetic Name Match: Sanjay Sen vs Sanjay Kumar Sen',
+            'Identical Age & House Address: 34 Yrs, 14/1 Chetla Central Road'
+          ]
+        },
+        executiveSummary: 'Gender-Relation tag contradiction duplicate pair flagged (94% match). Linked with primary record EPIC-WB-2026-55301.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 16:05:00',
+      updated_at: '2026-08-07 16:05:00'
+    },
+    {
+      id: 'rec-048',
+      epic_number: 'EPIC-WB-2026-55401',
+      voter_name: 'Monojit Bandyopadhyay',
+      relative_name: 'Bireswar Bandyopadhyay',
+      relation_type: 'Father',
+      age: 42,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 02',
+      part_number: 'Part 02 (Booth 03-A)',
+      house_address: '7 Strand Road, Kolkata',
+      blo_assigned: 'BLO-02 (S. Mitra)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-08-07 17:00:00',
+      risk_score: 91,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 91,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Manual Section 3.4 - Incomplete Name Initial Audit',
+        rootCauseFactors: [
+          'Full legal record registered as Monojit Bandyopadhyay',
+          'Incomplete single-character entry (M / B) generated under same household in Booth 03-B'
+        ],
+        recommendedFieldActions: [
+          'ERO order to purge truncated initial record EPIC-WB-2026-55402',
+          'Retain full legal name record'
+        ],
+        bloVerificationChecklist: [
+          'Verify single physical voter at 7 Strand Road',
+          'Obtain signed Form 7 consent'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 93,
+          similarityReasoning: 'Primary full legal name reference record for incomplete initial duplicate pair comparison.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Primary reference record for truncated initial duplicate pair. Truncated record flagged in Booth 03-B.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-08-07 17:00:00',
+      updated_at: '2026-08-07 17:00:00'
+    },
+    {
+      id: 'rec-049',
+      epic_number: 'EPIC-WB-2026-55402',
+      voter_name: 'M',
+      relative_name: 'B',
+      relation_type: 'Father',
+      age: 42,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 02',
+      part_number: 'Part 02 (Booth 03-B)',
+      house_address: '7 Strand Road, Flat 2A, Kolkata',
+      blo_assigned: 'BLO-02 (S. Mitra)',
+      category: 'Demographic Inconsistency',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-08-07 17:05:00',
+      risk_score: 93,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-048',
+      duplicate_similarity: 93,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 93,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Anti-Truncation & Single-Character Enrollment Purge Protocol',
+        rootCauseFactors: [
+          'Incomplete single-character registration "M / B" submitted during online portal draft',
+          'Matches full verified voter record Monojit Bandyopadhyay (Father Bireswar Bandyopadhyay, age 42, 7 Strand Road)'
+        ],
+        recommendedFieldActions: [
+          'Execute Form 7 purge of incomplete card EPIC-WB-2026-55402',
+          'Ensure voter retains master card EPIC-WB-2026-55401'
+        ],
+        bloVerificationChecklist: [
+          'Inspect Aadhaar card for full official name',
+          'Obtain written confirmation of single card retention'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 93,
+          matchedVoterId: 'rec-048',
+          matchedEpicNumber: 'EPIC-WB-2026-55401',
+          matchedVoterName: 'Monojit Bandyopadhyay',
+          matchedConstituency: 'AC-164 Kolkata South, Part 02',
+          similarityReasoning: 'Demographic inconsistency duplicate pair flagged between incomplete single-character entry (M / B) and full record Monojit Bandyopadhyay at same address.',
+          matchingFactors: [
+            'Intra-Booth Duplicate Match: Part 02 Booth 03-A vs 03-B',
+            'Demographic Name Inconsistency: Abbreviated initial "M" vs Full name Monojit Bandyopadhyay',
+            'Relative Initial Match: Abbreviated "B" vs Bireswar Bandyopadhyay',
+            'Identical Age & House Address: 42 Yrs (M), 7 Strand Road'
+          ]
+        },
+        executiveSummary: 'Single-character initial duplicate pair flagged (93% match). Linked with primary record EPIC-WB-2026-55401.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-08-07 17:05:00',
+      updated_at: '2026-08-07 17:05:00'
     }
   ];
 
