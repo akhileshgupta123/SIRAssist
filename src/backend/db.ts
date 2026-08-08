@@ -97,7 +97,7 @@ function initTables(database: Database): void {
     );
   `);
 
-  // Check if seeded
+  // Check if seeded with full dataset
   const stmt = database.prepare("SELECT COUNT(*) as count FROM electoral_records");
   let count = 0;
   if (stmt.step()) {
@@ -105,7 +105,7 @@ function initTables(database: Database): void {
   }
   stmt.free();
 
-  if (count === 0) {
+  if (count < 15) {
     seedInitialData(database);
   }
 }
@@ -372,12 +372,567 @@ function seedInitialData(database: Database): void {
       }),
       created_at: '2026-07-23 09:00:00',
       updated_at: '2026-07-24 11:00:00'
+    },
+    {
+      id: 'rec-006',
+      epic_number: 'EPIC-WB-2026-66201',
+      voter_name: 'Suresh Chandra Chatterji',
+      relative_name: 'Debashis Chatterji',
+      relation_type: 'Father',
+      age: 45,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 14',
+      part_number: 'Part 14 (Booth 18-A)',
+      house_address: '15A Southern Avenue, Kalighat',
+      blo_assigned: 'BLO-14 (S. Roy)',
+      category: 'Phonetic Soundex Match',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-07-26 14:10:00',
+      risk_score: 89,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 89,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Manual Chapter 3 - Phonetic Soundex & Spelling Transliteration Audit',
+        rootCauseFactors: [
+          'Phonetic Soundex code C362 matches record EPIC-WB-2026-66202 in Part 14',
+          'Suresh Chandra Chatterji vs Suresh Chandra Chatterjee transliteration difference',
+          'Identical age (45) and Father name Debashis/Debasish Chatterji'
+        ],
+        recommendedFieldActions: [
+          'Assign BLO-14 to inspect 15A Southern Avenue',
+          'Verify if Chatterji and Chatterjee entries belong to one physical elector'
+        ],
+        bloVerificationChecklist: [
+          'Check Aadhaar or Passport spelling',
+          'Obtain Form 7 deletion consent if duplicate'
+        ],
+        recommendedOwner: 'BLO-14 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 95,
+          similarityReasoning: 'Primary reference record for phonetic spelling duplicate check.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Phonetic Soundex duplicate match detected with EPIC-WB-2026-66202. Field audit active.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-07-26 14:10:00',
+      updated_at: '2026-07-26 14:10:00'
+    },
+    {
+      id: 'rec-007',
+      epic_number: 'EPIC-WB-2026-66202',
+      voter_name: 'Suresh Chandra Chatterjee',
+      relative_name: 'Debasish Chatterjee',
+      relation_type: 'Father',
+      age: 45,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 14',
+      part_number: 'Part 14 (Booth 18-A)',
+      house_address: '15-A Southern Ave, Kalighat',
+      blo_assigned: 'BLO-14 (S. Roy)',
+      category: 'Phonetic Soundex Match',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-07-26 14:15:00',
+      risk_score: 93,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-006',
+      duplicate_similarity: 96,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 93,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 - Prohibition of Double Registration',
+        rootCauseFactors: [
+          'Phonetic Soundex code C362 matched 100% with primary entry rec-006',
+          'Identical age (45), gender (M), and house address variation (15A vs 15-A)',
+          'Spelling variant generated during English-Bengali roll transliteration'
+        ],
+        recommendedFieldActions: [
+          'Issue Form 7 deletion notice to Chatterjee entry following BLO verification',
+          'Retain primary Chatterji entry (EPIC-WB-2026-66201)'
+        ],
+        bloVerificationChecklist: [
+          'Verify elector identity card',
+          'Collect signed Form 7 surrender statement'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 96,
+          matchedVoterId: 'rec-006',
+          matchedEpicNumber: 'EPIC-WB-2026-66201',
+          matchedVoterName: 'Suresh Chandra Chatterji',
+          matchedConstituency: 'AC-164 Kolkata South, Part 14',
+          similarityReasoning: 'Phonetic Soundex match C362, exact age, father name variant, and identical address.',
+          matchingFactors: [
+            'Phonetic Soundex: Chatterji <-> Chatterjee (Code: C362)',
+            'Father Name: Debashis Chatterji vs Debasish Chatterjee',
+            'Same Age: 45 years (M)',
+            'Address Match: 15A Southern Avenue vs 15-A Southern Ave'
+          ]
+        },
+        executiveSummary: 'Phonetic Soundex Duplicate confirmed (96% similarity). Flagged for Form 7 deletion.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-07-26 14:15:00',
+      updated_at: '2026-07-26 14:20:00'
+    },
+    {
+      id: 'rec-008',
+      epic_number: 'EPIC-WB-2026-55101',
+      voter_name: 'Priya Mukherjee',
+      relative_name: 'Amit Mukherjee',
+      relation_type: 'Husband',
+      age: 31,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 12',
+      part_number: 'Part 12 (Booth 14-A)',
+      house_address: '120 Lake Road, Flat 2B, Kolkata',
+      blo_assigned: 'BLO-12 (A. Banerjee)',
+      category: 'EPIC Suffix Match',
+      anomaly_severity: 'Critical',
+      status: 'Pending ERO Review',
+      date_reported: '2026-07-27 08:30:00',
+      risk_score: 96,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 96,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI EPIC Allocation Standard - Suffix Typo & Re-issued Card Dual Enrollment Audit',
+        rootCauseFactors: [
+          'Duplicate EPIC entry detected with appended suffix "A" in adjacent Part 13',
+          'Identical voter name "Priya Mukherjee", husband "Amit Mukherjee", and age 31',
+          'Same photo hash detected across both part draft rolls'
+        ],
+        recommendedFieldActions: [
+          'Immediate ERO review to purge erroneous suffix EPIC entry in Part 13',
+          'Issue clean single EPIC confirmation certificate'
+        ],
+        bloVerificationChecklist: [
+          'Verify original physical EPIC card held by voter',
+          'Confirm no duplicate Form 6 application was submitted'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 98,
+          similarityReasoning: 'Master reference record for EPIC Suffix Typo audit.',
+          matchingFactors: []
+        },
+        executiveSummary: 'EPIC Suffix Typo duplicate flagged with EPIC-WB-2026-55101A. Critical review pending.',
+        aiConfidence: 98
+      }),
+      created_at: '2026-07-27 08:30:00',
+      updated_at: '2026-07-27 08:30:00'
+    },
+    {
+      id: 'rec-009',
+      epic_number: 'EPIC-WB-2026-55101A',
+      voter_name: 'Priya Mukherjee',
+      relative_name: 'Amit Mukherjee',
+      relation_type: 'Husband',
+      age: 31,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 13',
+      part_number: 'Part 13 (Booth 15-B)',
+      house_address: '120 Lake Road, Flat 2B, Kolkata',
+      blo_assigned: 'BLO-13 (K. Chanda)',
+      category: 'EPIC Suffix Match',
+      anomaly_severity: 'Critical',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-07-27 08:35:00',
+      risk_score: 98,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-008',
+      duplicate_similarity: 98,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 98,
+        anomalySeverity: 'Critical',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 & 22 - Erroneous Duplicate EPIC Purge',
+        rootCauseFactors: [
+          'EPIC ID prefix matches EPIC-WB-2026-55101 with trailing suffix "A"',
+          '100% exact match on voter name, relative name, age, and house address',
+          'Erroneously generated during re-printing/migration processing'
+        ],
+        recommendedFieldActions: [
+          'Execute immediate Form 7 purge of duplicate suffix entry EPIC-WB-2026-55101A',
+          'Update central ECI voter database index'
+        ],
+        bloVerificationChecklist: [
+          'Collect written statement regarding re-issue card error',
+          'Confirm voter retains primary card EPIC-WB-2026-55101'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 6,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 98,
+          matchedVoterId: 'rec-008',
+          matchedEpicNumber: 'EPIC-WB-2026-55101',
+          matchedVoterName: 'Priya Mukherjee',
+          matchedConstituency: 'AC-164 Kolkata South, Part 12',
+          similarityReasoning: 'EPIC Suffix Typo match (98% similarity). Exact name, age, husband, and address match.',
+          matchingFactors: [
+            'EPIC Match: EPIC-WB-2026-55101 vs EPIC-WB-2026-55101A',
+            'Exact Name Match: Priya Mukherjee',
+            'Exact Relative Match: Husband Amit Mukherjee',
+            'Exact Age & Address: 31 years, 120 Lake Road'
+          ]
+        },
+        executiveSummary: 'Critical EPIC Suffix Typo Duplicate (98% match). Flagged for instant ERO purge.',
+        aiConfidence: 99
+      }),
+      created_at: '2026-07-27 08:35:00',
+      updated_at: '2026-07-27 08:40:00'
+    },
+    {
+      id: 'rec-010',
+      epic_number: 'EPIC-WB-2026-33410',
+      voter_name: 'Pooja Banerjee',
+      relative_name: 'Biswanath Banerjee',
+      relation_type: 'Father',
+      age: 29,
+      gender: 'F',
+      assembly_constituency: 'AC-164 Kolkata South, Part 10',
+      part_number: 'Part 10 (Booth 11-A)',
+      house_address: '54 Ballygunge Circular Road, Kolkata',
+      blo_assigned: 'BLO-10 (R. Nandi)',
+      category: 'Maiden/Married Name Match',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-07-28 11:00:00',
+      risk_score: 91,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 91,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Directive - Marital Relocation & Maiden Name Duplicate Audit',
+        rootCauseFactors: [
+          'Voter registered at parents home in AC-164 under father name Biswanath Banerjee',
+          'Matching record Pooja Banerjee Das (Husband: Siddharth Das) found in AC-165 Jadavpur',
+          'Facial recognition photo hash similarity threshold matched at 94%'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-10 to verify marital relocation status',
+          'Check if Form 8 transfer was completed or if dual enrollment exists'
+        ],
+        bloVerificationChecklist: [
+          'Obtain marriage certificate copy',
+          'Confirm current primary residence (Ballygunge vs Jadavpur)'
+        ],
+        recommendedOwner: 'BLO-10 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 94,
+          similarityReasoning: 'Maiden record reference at parental address in AC-164.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Marital relocation duplicate flagged with AC-165 record. Field verification dispatched.',
+        aiConfidence: 94
+      }),
+      created_at: '2026-07-28 11:00:00',
+      updated_at: '2026-07-28 11:00:00'
+    },
+    {
+      id: 'rec-011',
+      epic_number: 'EPIC-WB-2026-33411',
+      voter_name: 'Pooja Banerjee Das',
+      relative_name: 'Siddharth Das',
+      relation_type: 'Husband',
+      age: 29,
+      gender: 'F',
+      assembly_constituency: 'AC-165 Jadavpur, Part 22',
+      part_number: 'Part 22 (Booth 04-C)',
+      house_address: '72 Prince Anwar Shah Road, Jadavpur',
+      blo_assigned: 'BLO-22 (T. Ghosh)',
+      category: 'Maiden/Married Name Match',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-07-28 11:05:00',
+      risk_score: 92,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-010',
+      duplicate_similarity: 91,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 92,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 - Prohibition of Dual Enrollment Post Marriage',
+        rootCauseFactors: [
+          'Matches maiden name record rec-010 in AC-164 Kolkata South',
+          'Exact age match (29 years) and female gender',
+          'Photo hash similarity 94% between parental and marital address records'
+        ],
+        recommendedFieldActions: [
+          'Purge maiden roll entry in AC-164 upon submission of marriage registration proof',
+          'Retain active marital record in AC-165 Jadavpur'
+        ],
+        bloVerificationChecklist: [
+          'Collect signed Form 7 for AC-164 deletion',
+          'Verify residence at Prince Anwar Shah Road'
+        ],
+        recommendedOwner: 'ERO AC-165 / ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 91,
+          matchedVoterId: 'rec-010',
+          matchedEpicNumber: 'EPIC-WB-2026-33410',
+          matchedVoterName: 'Pooja Banerjee',
+          matchedConstituency: 'AC-164 Kolkata South, Part 10',
+          similarityReasoning: 'Maiden vs Married surname match (Pooja Banerjee vs Pooja Banerjee Das), exact age 29, and photo match.',
+          matchingFactors: [
+            'First Name & Maiden Surname Match: Pooja Banerjee',
+            'Exact Age: 29 years (F)',
+            'Photo Hash Match: 94% visual similarity',
+            'Cross-AC Relocation: AC-164 -> AC-165'
+          ]
+        },
+        executiveSummary: 'Maiden/Married name relocation duplicate flagged (91% match). Notice pending.',
+        aiConfidence: 95
+      }),
+      created_at: '2026-07-28 11:05:00',
+      updated_at: '2026-07-28 11:10:00'
+    },
+    {
+      id: 'rec-012',
+      epic_number: 'EPIC-WB-2026-77801',
+      voter_name: 'Vikramaditya Roy',
+      relative_name: 'Tapan Kumar Roy',
+      relation_type: 'Father',
+      age: 38,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 18',
+      part_number: 'Part 18 (Booth 22-A)',
+      house_address: '42/B Salt Lake Sector 1, Block B',
+      blo_assigned: 'BLO-18 (M. Mitra)',
+      category: 'Fuzzy Address Match',
+      anomaly_severity: 'High',
+      status: 'Pending ERO Review',
+      date_reported: '2026-07-29 09:15:00',
+      risk_score: 89,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 89,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Anti-Clustering Protocol - Normalized Fuzzy Address Matching',
+        rootCauseFactors: [
+          'Address string "42/B Salt Lake Sector 1, Block B" matches "Plot 42-B, Sector-I Block B, Salt Lake"',
+          'Exact voter name Vikramaditya Roy and age 38',
+          'Father name variant Tapan Kumar Roy vs Tapan Roy in adjacent Booth 23'
+        ],
+        recommendedFieldActions: [
+          'Consolidate dual entries into single Part 18 polling booth',
+          'Issue Form 7 purge for duplicate record in Part 19'
+        ],
+        bloVerificationChecklist: [
+          'Verify physical plot address format with postal pincode',
+          'Confirm voter receives mail at 42/B'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 95,
+          similarityReasoning: 'Primary record for fuzzy address duplicate audit.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Fuzzy address duplicate flagged across adjacent polling booths (Part 18 & Part 19).',
+        aiConfidence: 96
+      }),
+      created_at: '2026-07-29 09:15:00',
+      updated_at: '2026-07-29 09:15:00'
+    },
+    {
+      id: 'rec-013',
+      epic_number: 'EPIC-WB-2026-77802',
+      voter_name: 'Vikramaditya Roy',
+      relative_name: 'Tapan Roy',
+      relation_type: 'Father',
+      age: 38,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 19',
+      part_number: 'Part 19 (Booth 23-B)',
+      house_address: 'Plot 42-B, Sector-I Block B, Salt Lake',
+      blo_assigned: 'BLO-19 (H. Mallick)',
+      category: 'Fuzzy Address Match',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-07-29 09:20:00',
+      risk_score: 95,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-012',
+      duplicate_similarity: 95,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 95,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 - Prohibition of Double Registration in Part Rolls',
+        rootCauseFactors: [
+          'Fuzzy address distance score 92% ("42/B Salt Lake Sector 1" vs "Plot 42-B, Sector-I")',
+          'Exact match on voter name Vikramaditya Roy and age 38',
+          'Registered in adjacent polling booths due to part boundary re-alignment'
+        ],
+        recommendedFieldActions: [
+          'Mark record for purge under Form 7',
+          'Retain primary master record in Part 18 (EPIC-WB-2026-77801)'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter agrees with Part 18 booth assignment',
+          'Obtain signed verification form'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 95,
+          matchedVoterId: 'rec-012',
+          matchedEpicNumber: 'EPIC-WB-2026-77801',
+          matchedVoterName: 'Vikramaditya Roy',
+          matchedConstituency: 'AC-164 Kolkata South, Part 18',
+          similarityReasoning: 'Fuzzy address match (95% similarity). Exact voter name, age 38, father Tapan Roy.',
+          matchingFactors: [
+            'Exact Voter Name: Vikramaditya Roy',
+            'Relative Name Match: Tapan Roy vs Tapan Kumar Roy',
+            'Exact Age: 38 years (M)',
+            'Fuzzy Address Similarity: 92% normalized match'
+          ]
+        },
+        executiveSummary: 'Fuzzy Address Duplicate confirmed (95% similarity). Pending ERO purge action.',
+        aiConfidence: 97
+      }),
+      created_at: '2026-07-29 09:20:00',
+      updated_at: '2026-07-29 09:25:00'
+    },
+    {
+      id: 'rec-014',
+      epic_number: 'EPIC-WB-2026-22301',
+      voter_name: 'Rabin Mukhopadhyay',
+      relative_name: 'Sunil Mukhopadhyay',
+      relation_type: 'Father',
+      age: 55,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 05',
+      part_number: 'Part 05 (Booth 06-A)',
+      house_address: '19 Gariahat Road, Kolkata',
+      blo_assigned: 'BLO-05 (D. Pal)',
+      category: 'Transliteration Match',
+      anomaly_severity: 'High',
+      status: 'Field Verification Assigned',
+      date_reported: '2026-07-30 10:00:00',
+      risk_score: 90,
+      is_duplicate: 0,
+      duplicate_of_id: null,
+      duplicate_similarity: 0,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 90,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI SIR Directive - Vernacular Transliteration Alias Dictionary Audit',
+        rootCauseFactors: [
+          'Bengali surname Mukhopadhyay equivalent to English roll Mukherjee',
+          'Phonetic match Rabin vs Robin',
+          'Identical age 55, father Sunil, and house address 19 Gariahat Road'
+        ],
+        recommendedFieldActions: [
+          'Dispatch BLO-05 to verify single identity of Rabin Mukhopadhyay / Robin Mukherjee',
+          'Update primary name to voter preferred spelling'
+        ],
+        bloVerificationChecklist: [
+          'Verify voter Aadhaar name representation',
+          'Obtain Form 7 consent for duplicate alias removal'
+        ],
+        recommendedOwner: 'BLO-05 / ERO AC-164',
+        targetSLAHours: 24,
+        duplicateAnalysis: {
+          isDuplicate: false,
+          confidenceScore: 93,
+          similarityReasoning: 'Primary record for Bengali surname transliteration duplicate audit.',
+          matchingFactors: []
+        },
+        executiveSummary: 'Transliteration duplicate flagged (Mukhopadhyay <-> Mukherjee). Field audit dispatched.',
+        aiConfidence: 94
+      }),
+      created_at: '2026-07-30 10:00:00',
+      updated_at: '2026-07-30 10:00:00'
+    },
+    {
+      id: 'rec-015',
+      epic_number: 'EPIC-WB-2026-22302',
+      voter_name: 'Robin Mukherjee',
+      relative_name: 'Sunil Mukherjee',
+      relation_type: 'Father',
+      age: 55,
+      gender: 'M',
+      assembly_constituency: 'AC-164 Kolkata South, Part 05',
+      part_number: 'Part 05 (Booth 06-A)',
+      house_address: '19 Gariahat Road, Kolkata',
+      blo_assigned: 'BLO-05 (D. Pal)',
+      category: 'Transliteration Match',
+      anomaly_severity: 'High',
+      status: 'Flagged Duplicate',
+      date_reported: '2026-07-30 10:05:00',
+      risk_score: 93,
+      is_duplicate: 1,
+      duplicate_of_id: 'rec-014',
+      duplicate_similarity: 93,
+      ai_analysis_json: JSON.stringify({
+        riskScore: 93,
+        anomalySeverity: 'High',
+        regulatoryGuideline: 'ECI Electoral Roll Rules Section 17 - Alias & Vernacular Double Registration Purge',
+        rootCauseFactors: [
+          'Vernacular alias match: Mukhopadhyay = Mukherjee',
+          'Rabin/Robin phonetic equality (Soundex R150)',
+          'Exact age 55 and identical house address 19 Gariahat Road'
+        ],
+        recommendedFieldActions: [
+          'Issue Form 7 purge notice to Robin Mukherjee entry',
+          'Retain Rabin Mukhopadhyay as primary verified voter'
+        ],
+        bloVerificationChecklist: [
+          'Collect signed Form 7 surrender note',
+          'Confirm single physical voter'
+        ],
+        recommendedOwner: 'ERO AC-164',
+        targetSLAHours: 12,
+        duplicateAnalysis: {
+          isDuplicate: true,
+          confidenceScore: 93,
+          matchedVoterId: 'rec-014',
+          matchedEpicNumber: 'EPIC-WB-2026-22301',
+          matchedVoterName: 'Rabin Mukhopadhyay',
+          matchedConstituency: 'AC-164 Kolkata South, Part 05',
+          similarityReasoning: 'Vernacular transliteration match (Mukhopadhyay <-> Mukherjee), Rabin <-> Robin, age 55, same address.',
+          matchingFactors: [
+            'Surname Transliteration: Mukhopadhyay <-> Mukherjee',
+            'Phonetic First Name: Rabin <-> Robin (Code: R150)',
+            'Exact Age: 55 years (M)',
+            'Exact Address: 19 Gariahat Road'
+          ]
+        },
+        executiveSummary: 'Transliteration Alias Duplicate confirmed (93% similarity). Flagged for ERO deletion.',
+        aiConfidence: 96
+      }),
+      created_at: '2026-07-30 10:05:00',
+      updated_at: '2026-07-30 10:10:00'
     }
   ];
 
   for (const rec of initialRecords) {
     database.run(`
-      INSERT INTO electoral_records (
+      INSERT OR REPLACE INTO electoral_records (
         id, epic_number, voter_name, relative_name, relation_type, age, gender,
         assembly_constituency, part_number, house_address, blo_assigned, category,
         anomaly_severity, status, date_reported, risk_score, is_duplicate,
@@ -393,7 +948,7 @@ function seedInitialData(database: Database): void {
 
     // Initial audit log entry
     database.run(`
-      INSERT INTO review_actions (
+      INSERT OR REPLACE INTO review_actions (
         id, incident_id, action_type, reviewer_name, reviewer_role, notes,
         prev_status, new_status, created_at
       ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)

@@ -1,8 +1,13 @@
 voterName,epicNumber,relativeName,relationType,age,gender,assemblyConstituency,partNumber,houseAddress,bloAssigned,category
-Ramesh Chandra Sharma,EPIC-WB-2026-90412,Kailash Nath Sharma,Father,42,M,AC-164 Kolkata South,Part 12,42/B Rashbehari Avenue Flat 3A Kolkata,BLO-12 (A. Banerjee),Demographic Match
-Subhash Bose,EPIC-WB-2026-99011,Janki Nath Bose,Father,48,M,AC-164 Kolkata South,Part 12,38/1 Elgin Road Kolkata,BLO-12 (A. Banerjee),Demographic Match
-Pratima Sen,EPIC-WB-2026-99022,Anil Sen,Husband,34,F,AC-164 Kolkata South,Part 14,14 Rashbehari Ave Kolkata,BLO-14 (S. Roy),Photo Hash Duplicate
-Kushal Mukherjee,EPIC-WB-2026-99033,Manish Mukherjee,Father,52,M,AC-165 Jadavpur,Part 48,88 SC Mullick Road Jadavpur,BLO-48 (M. Das),Bulk Address Cluster
-Amina Begum,EPIC-WB-2026-99044,Tariq Hossain,Husband,29,F,AC-164 Kolkata South,Part 15,102 Park Street Kolkata,BLO-15 (R. Ghosh),EPIC ID Anomaly
-Rajesh Kumar Sharma,EPIC-WB-2026-90412,Kailash Sharma,Father,42,M,AC-165 Jadavpur,Part 48,18/1 SC Mullick Road Jadavpur,BLO-48 (M. Das),EPIC ID Anomaly
-Sita Devi,EPIC-WB-2026-99066,Ram Charan,Father,104,F,AC-164 Kolkata South,Part 12,5 Shakespeare Sarani Kolkata,BLO-12 (A. Banerjee),Age/Relative Mismatch
+Rajesh Kumar Sharma,EPIC-WB-2026-90412,Kailash Nath Sharma,Father,42,M,AC-164 Kolkata South,Part 12,42/B Rashbehari Avenue Flat 3A Kolkata,BLO-12 (A. Banerjee),Demographic Match
+Rajesh K Sharma,EPIC-WB-2026-88102,Kailash Sharma,Father,42,M,AC-165 Jadavpur,Part 48,18/1 SC Mullick Road Jadavpur,BLO-48 (M. Das),Demographic Match
+Suresh Chandra Chatterji,EPIC-WB-2026-66201,Debashis Chatterji,Father,45,M,AC-164 Kolkata South,Part 14,15A Southern Avenue Kalighat,BLO-14 (S. Roy),Phonetic Soundex Match
+Suresh Chandra Chatterjee,EPIC-WB-2026-66202,Debasish Chatterjee,Father,45,M,AC-164 Kolkata South,Part 14,15-A Southern Ave Kalighat,BLO-14 (S. Roy),Phonetic Soundex Match
+Priya Mukherjee,EPIC-WB-2026-55101,Amit Mukherjee,Husband,31,F,AC-164 Kolkata South,Part 12,120 Lake Road Flat 2B,BLO-12 (A. Banerjee),EPIC Suffix Match
+Priya Mukherjee,EPIC-WB-2026-55101A,Amit Mukherjee,Husband,31,F,AC-164 Kolkata South,Part 13,120 Lake Road Flat 2B,BLO-13 (K. Chanda),EPIC Suffix Match
+Pooja Banerjee,EPIC-WB-2026-33410,Biswanath Banerjee,Father,29,F,AC-164 Kolkata South,Part 10,54 Ballygunge Circular Road,BLO-10 (R. Nandi),Maiden/Married Name Match
+Pooja Banerjee Das,EPIC-WB-2026-33411,Siddharth Das,Husband,29,F,AC-165 Jadavpur,Part 22,72 Prince Anwar Shah Road Jadavpur,BLO-22 (T. Ghosh),Maiden/Married Name Match
+Vikramaditya Roy,EPIC-WB-2026-77801,Tapan Kumar Roy,Father,38,M,AC-164 Kolkata South,Part 18,42/B Salt Lake Sector 1 Block B,BLO-18 (M. Mitra),Fuzzy Address Match
+Vikramaditya Roy,EPIC-WB-2026-77802,Tapan Roy,Father,38,M,AC-164 Kolkata South,Part 19,Plot 42-B Sector-I Block B Salt Lake,BLO-19 (H. Mallick),Fuzzy Address Match
+Rabin Mukhopadhyay,EPIC-WB-2026-22301,Sunil Mukhopadhyay,Father,55,M,AC-164 Kolkata South,Part 05,19 Gariahat Road Kolkata,BLO-05 (D. Pal),Transliteration Match
+Robin Mukherjee,EPIC-WB-2026-22302,Sunil Mukherjee,Father,55,M,AC-164 Kolkata South,Part 05,19 Gariahat Road Kolkata,BLO-05 (D. Pal),Transliteration Match

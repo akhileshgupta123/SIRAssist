@@ -15,7 +15,12 @@ export type SIRCategory =
   | 'Photo Hash Duplicate' 
   | 'Bulk Address Cluster' 
   | 'Age/Relative Mismatch' 
-  | 'Deceased/Shifted Flag';
+  | 'Deceased/Shifted Flag'
+  | 'Phonetic Soundex Match'
+  | 'EPIC Suffix Match'
+  | 'Maiden/Married Name Match'
+  | 'Fuzzy Address Match'
+  | 'Transliteration Match';
 
 export interface DuplicateVoterMatch {
   isDuplicate: boolean;
